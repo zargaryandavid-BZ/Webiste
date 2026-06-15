@@ -1371,7 +1371,10 @@
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) throw new Error('Request failed');
+      const payload = await res.json().catch(() => null);
+      if (!res.ok || !payload?.ok) {
+        throw new Error(payload?.error || 'Request failed');
+      }
 
       form.style.display = 'none';
       successEl.style.display = 'block';
