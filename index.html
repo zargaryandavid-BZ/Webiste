@@ -267,13 +267,32 @@
     .hero-divider { width: 1px; height: 36px; background: var(--border); }
 
     @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-visual { order: 2; }
-      .hero-content { order: 1; text-align: center; }
+      #home { min-height: auto; padding: 6rem 5% 4rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-visual {
+        order: 1;
+        min-height: 0;
+        aspect-ratio: 16 / 10;
+        max-height: 220px;
+        border-radius: 16px;
+      }
+      .hero-cards-layer { display: none; }
+      .hero-content { order: 2; text-align: center; }
       h1 { margin: 0 auto 1.5rem; }
       .hero-sub { margin: 0 auto 2.5rem; }
       .hero-ctas { justify-content: center; }
-      .hero-stats { justify-content: center; }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+        width: 100%;
+        margin-top: 2rem;
+        justify-content: stretch;
+      }
+      .hero-stat { text-align: center; }
+      .hero-stat .num { font-size: clamp(1.25rem, 5vw, 1.7rem); }
+      .hero-stat .label { font-size: 0.62rem; line-height: 1.25; }
+      .hero-divider { display: none; }
     }
 
     /* ── SECTION SHARED ── */
@@ -499,14 +518,6 @@
     .footer-brand { display: flex; align-items: center; gap: 10px; }
     .footer-brand .name { font-weight: 800; font-size: 1rem; }
     .footer-brand .tagline { font-size: 0.78rem; color: var(--muted); }
-    .footer-links {
-      display: flex; gap: 2rem; list-style: none;
-    }
-    .footer-links a {
-      color: var(--muted); text-decoration: none; font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--text); }
     .footer-copy { font-size: 0.8rem; color: var(--muted); }
 
     /* ── FADE-IN ANIMATION ── */
@@ -524,7 +535,6 @@
       .process-steps { grid-template-columns: 1fr 1fr; }
       .process-step { border-right: 1px solid var(--border); }
       .form-row { grid-template-columns: 1fr; }
-      .hero-divider { display: none; }
     }
     @media (max-width: 600px) {
       .cta-box { padding: 2rem 1.5rem; }
@@ -1319,12 +1329,6 @@
       <div class="tagline">Print House Automation Management Platform</div>
     </div>
   </div>
-  <ul class="footer-links">
-    <li><a href="#products">Platform</a></li>
-    <li><a href="#why">Why Pulse</a></li>
-    <li><a href="#process">How It Works</a></li>
-    <li><a href="#get-started">Request Demo</a></li>
-  </ul>
   <div class="footer-copy">© 2026 Pulse. All rights reserved.</div>
 </footer>
 
