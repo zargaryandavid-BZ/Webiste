@@ -9,7 +9,7 @@
   <meta property="og:title" content="Pulse — Print House Automation &amp; Management Platform" />
   <meta property="og:description" content="The all-in-one platform built for printing houses. Run every job, own every deadline." />
   <meta property="og:type" content="website" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f6ef7'/%3E%3Cpath d='M4 16h5l3-8 5 16 3-10 2 6h6' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233237FF'/%3E%3Cpath d='M4 16h5l3-8 5 16 3-10 2 6h6' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -946,23 +946,23 @@
         <span class="section-label" style="display:block; margin-bottom:0.5rem;">Get Started</span>
         <h2 style="font-size:1.75rem; margin-bottom:0.5rem;">See Pulse in action.</h2>
         <p style="color:var(--muted); font-size:0.88rem; margin-bottom:1.5rem;">Tell us about your print shop and we'll show you exactly how Pulse transforms your workflow — live, in 30 minutes.</p>
-        <form class="demo-form" onsubmit="handleSubmit(event)">
+        <form class="demo-form" id="demo-form" onsubmit="handleSubmit(event)">
           <div class="form-row">
-            <input class="form-input" type="text" placeholder="Your name" required />
-            <input class="form-input" type="email" placeholder="Work email" required />
+            <input class="form-input" type="text" name="name" placeholder="Your name" required />
+            <input class="form-input" type="email" name="email" placeholder="Work email" required />
           </div>
           <div class="form-row">
-            <input class="form-input" type="text" placeholder="Print shop name" required />
-            <input class="form-input" type="tel" placeholder="Phone number" />
+            <input class="form-input" type="text" name="shop" placeholder="Print shop name" required />
+            <input class="form-input" type="tel" name="phone" placeholder="Phone number" required />
           </div>
-          <select class="form-select">
+          <select class="form-select" name="employees" required>
             <option value="" disabled selected>How many employees?</option>
             <option>1–5 employees</option>
             <option>6–20 employees</option>
             <option>21–50 employees</option>
             <option>50+ employees</option>
           </select>
-          <select class="form-select">
+          <select class="form-select" name="module" required>
             <option value="" disabled selected>Which module interests you most?</option>
             <option>Pulse CRM</option>
             <option>Pulse Design Manager</option>
@@ -971,9 +971,12 @@
             <option>Broker Websites</option>
             <option>The full platform</option>
           </select>
-          <button type="submit" class="btn-submit">Request My Free Demo →</button>
+          <button type="submit" class="btn-submit" id="demo-submit">Request My Free Demo →</button>
           <p class="form-note">No commitment. We respond within one business day.</p>
         </form>
+        <div id="form-error" style="display:none; padding:1.25rem; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-radius:12px; color:#f87171; font-weight:600; margin-top:1rem; text-align:center;">
+          Something went wrong. Please try again or email us directly.
+        </div>
         <div id="form-success" style="display:none; padding:1.25rem; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.25); border-radius:12px; color:var(--cyan); font-weight:600; margin-top:1rem; text-align:center;">
           ✓ Request received! We'll be in touch within one business day.
         </div>
@@ -1339,11 +1342,44 @@
   }, { threshold: 0.1 });
   fadeEls.forEach(el => observer.observe(el));
 
-  // Form submit handler
-  function handleSubmit(e) {
+  // Form submit handler — sends all fields to Netlify function, which texts you via Twilio
+  async function handleSubmit(e) {
     e.preventDefault();
-    e.target.style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
+
+    const form = e.target;
+    const submitBtn = document.getElementById('demo-submit');
+    const errorEl = document.getElementById('form-error');
+    const successEl = document.getElementById('form-success');
+
+    errorEl.style.display = 'none';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    const data = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      shop: form.shop.value.trim(),
+      phone: form.phone.value.trim(),
+      employees: form.employees.value,
+      module: form.module.value,
+    };
+
+    try {
+      const res = await fetch('/api/demo-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error('Request failed');
+
+      form.style.display = 'none';
+      successEl.style.display = 'block';
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request My Free Demo →';
+      errorEl.style.display = 'block';
+    }
   }
 </script>
 </body>
