@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse — Print House Automation &amp; Management Platform</title>
+  <meta name="description" content="Pulse is the all-in-one management platform built exclusively for printing houses. CRM, job tickets, designer management, HR, and white-label broker websites — one platform, zero chaos." />
+  <meta name="keywords" content="print shop management software, printing house automation, print CRM, job ticket software, print production management, print broker website, print shop workflow, printing business software" />
+  <meta property="og:title" content="Pulse — Print House Automation &amp; Management Platform" />
+  <meta property="og:description" content="The all-in-one platform built for printing houses. Run every job, own every deadline." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f6ef7'/%3E%3Cpath d='M4 16h5l3-8 5 16 3-10 2 6h6' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #06060e;
+      --bg2: #0c0c18;
+      --bg3: #11111f;
+      --border: rgba(255,255,255,0.07);
+      --blue: #4f6ef7;
+      --blue-light: #7b93ff;
+      --cyan: #22d3ee;
+      --text: #f0f2ff;
+      --muted: #8b90a8;
+      --accent-glow: rgba(79,110,247,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 5%;
+      background: rgba(6,6,14,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1.25rem; font-weight: 800; color: var(--text);
+      text-decoration: none; letter-spacing: -0.02em;
+    }
+    .pulse-icon {
+      width: 32px; height: 32px; background: var(--blue);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .pulse-icon svg { width: 20px; height: 20px; }
+    .nav-links {
+      display: flex; align-items: center; gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.9rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 0.6rem 1.4rem; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: all 0.2s; border: none;
+    }
+    .btn-primary {
+      background: var(--blue); color: #fff;
+      box-shadow: 0 0 24px rgba(79,110,247,0.35);
+    }
+    .btn-primary:hover {
+      background: var(--blue-light);
+      box-shadow: 0 0 36px rgba(79,110,247,0.55);
+      transform: translateY(-1px);
+    }
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 7rem 5% 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -10%; right: -5%;
+      width: 700px; height: 700px;
+      background: radial-gradient(ellipse, rgba(79,110,247,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 90% 70% at 70% 40%, black 10%, transparent 80%);
+      pointer-events: none;
+    }
+
+    /* Split layout */
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+
+    /* ── HERO LEFT — photo + dashboard overlay ── */
+    .hero-visual {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      min-height: 680px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .hero-photo-layer {
+      position: absolute; inset: 0;
+    }
+    .hero-photo-layer img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(1);
+      display: block;
+    }
+    .hero-photo-layer::after {
+      content: none;
+    }
+    .hero-cards-layer {
+      position: absolute; z-index: 1;
+      top: 1rem; left: 1rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+      width: 220px;
+    }
+    .dash-card {
+      background: rgba(6,6,14,0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; padding: 0.7rem 0.85rem;
+      transition: border-color 0.4s;
+    }
+    .dash-card:hover { border-color: rgba(79,110,247,0.4); }
+    .dash-card-top {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 0.45rem;
+    }
+    .dash-label { font-size: 0.62rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .dash-live { font-size: 0.6rem; font-weight: 700; color: var(--cyan); display: flex; align-items: center; gap: 4px; }
+    .dash-live::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); animation: pulse-dot 2s ease-in-out infinite; }
+    .dash-stat-row {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 0.35rem;
+    }
+    .dash-stat {
+      text-align: center; background: rgba(255,255,255,0.06); border-radius: 7px; padding: 0.4rem 0.25rem;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .dash-stat .val { font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
+    .dash-stat .key { font-size: 0.58rem; color: var(--muted); margin-top: 1px; }
+    .dash-stat.green .val { color: #4ade80; }
+    .dash-stat.blue .val { color: var(--blue-light); }
+    .dash-stat.cyan .val { color: var(--cyan); }
+
+    /* job rows */
+    .job-rows { display: flex; flex-direction: column; gap: 0.3rem; }
+    .job-row {
+      display: flex; align-items: center; gap: 0.4rem;
+      padding: 0.35rem 0.5rem; border-radius: 7px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
+      font-size: 0.68rem;
+    }
+    .job-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .job-deadline, .job-status { display: none; }
+    .job-dot.green { background: #4ade80; }
+    .job-dot.yellow { background: #fbbf24; }
+    .job-dot.blue { background: var(--blue-light); }
+    .job-name { font-weight: 600; flex: 1; }
+    .job-deadline { font-size: 0.72rem; color: var(--muted); }
+    .job-status {
+      font-size: 0.68rem; font-weight: 700; padding: 0.2rem 0.5rem;
+      border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .job-status.done { background: rgba(74,222,128,0.12); color: #4ade80; }
+    .job-status.press { background: rgba(79,110,247,0.15); color: var(--blue-light); }
+    .job-status.review { background: rgba(251,191,36,0.12); color: #fbbf24; }
+
+    /* progress bar card */
+    .dash-progress-row { display: flex; flex-direction: column; gap: 0.4rem; }
+    .prog-item { display: flex; align-items: center; gap: 0.5rem; }
+    .prog-label { font-size: 0.62rem; color: var(--muted); width: 70px; flex-shrink: 0; }
+    .prog-bar-bg { flex: 1; height: 5px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+    .prog-bar { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+    .prog-val { font-size: 0.62rem; font-weight: 700; color: var(--text); width: 26px; text-align: right; }
+
+    /* ── HERO RIGHT — content ── */
+    .hero-content { text-align: left; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(79,110,247,0.12); border: 1px solid rgba(79,110,247,0.3);
+      border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.78rem;
+      font-weight: 600; color: var(--blue-light); margin-bottom: 1.5rem;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--cyan);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+    h1 {
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      font-weight: 900; line-height: 1.05;
+      letter-spacing: -0.03em; max-width: 600px; margin: 0 0 1.5rem;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--blue-light) 0%, var(--cyan) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--muted); max-width: 440px;
+      margin: 0 0 2.5rem; font-weight: 400;
+    }
+    .hero-ctas {
+      display: flex; align-items: center; justify-content: flex-start;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .btn-primary-lg {
+      padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;
+    }
+    .hero-stats {
+      display: flex; align-items: center; justify-content: flex-start;
+      gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap;
+    }
+    .hero-stat { text-align: left; }
+    .hero-stat .num {
+      font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 0%, var(--muted) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-stat .label { font-size: 0.78rem; color: var(--muted); font-weight: 500; }
+    .hero-divider { width: 1px; height: 36px; background: var(--border); }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-visual { order: 2; }
+      .hero-content { order: 1; text-align: center; }
+      h1 { margin: 0 auto 1.5rem; }
+      .hero-sub { margin: 0 auto 2.5rem; }
+      .hero-ctas { justify-content: center; }
+      .hero-stats { justify-content: center; }
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 6rem 5%; }
+    .section-label {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--blue-light); margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800; letter-spacing: -0.02em; line-height: 1.1;
+      max-width: 700px;
+    }
+    .section-sub {
+      color: var(--muted); font-size: 1.05rem; max-width: 520px;
+      margin-top: 0.75rem;
+    }
+    .section-header { margin-bottom: 3.5rem; }
+
+    /* ── PROBLEM ── */
+    #problem { background: var(--bg2); }
+    .problem-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .problem-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.75rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .problem-card:hover {
+      border-color: rgba(79,110,247,0.35);
+      transform: translateY(-2px);
+    }
+    .problem-icon {
+      font-size: 1.5rem; margin-bottom: 0.75rem;
+    }
+    .problem-card h3 {
+      font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;
+    }
+    .problem-card p { font-size: 0.9rem; color: var(--muted); }
+
+    /* ── PRODUCTS ── */
+    #products { background: var(--bg); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .product-card:nth-child(4),
+    .product-card:nth-child(5) {
+      /* Last 2 span more width for balance */
+    }
+    .product-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .product-card:hover { border-color: rgba(79,110,247,0.35); transform: translateY(-3px); }
+    .product-card:hover::before { opacity: 1; }
+    .product-number {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue-light);
+      margin-bottom: 1rem;
+    }
+    .product-icon-wrap {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--accent-glow); border: 1px solid rgba(79,110,247,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1.25rem;
+    }
+    .product-card h3 {
+      font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;
+    }
+    .product-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+    .product-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem;
+    }
+    .tag {
+      font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.6rem;
+      background: rgba(79,110,247,0.1); border: 1px solid rgba(79,110,247,0.2);
+      border-radius: 6px; color: var(--blue-light);
+    }
+    /* Wide card for broker */
+    .product-card.wide {
+      grid-column: span 3;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
+    }
+    .product-card.wide .wide-visual {
+      background: rgba(79,110,247,0.06); border: 1px solid rgba(79,110,247,0.12);
+      border-radius: 12px; padding: 1.5rem; font-size: 0.82rem; color: var(--muted);
+    }
+    .broker-preview {
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .broker-bar {
+      height: 10px; border-radius: 5px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      opacity: 0.6;
+    }
+    .broker-bar.short { width: 60%; }
+    .broker-bar.med { width: 80%; }
+    .broker-row {
+      display: flex; gap: 0.5rem;
+    }
+    .broker-pill {
+      padding: 0.25rem 0.75rem; border-radius: 6px;
+      background: rgba(255,255,255,0.05); font-size: 0.75rem;
+      color: var(--muted); border: 1px solid var(--border);
+    }
+    .broker-pill.active { background: rgba(79,110,247,0.15); color: var(--blue-light); border-color: rgba(79,110,247,0.3); }
+
+    /* ── WHY PULSE ── */
+    #why { background: var(--bg2); }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem; margin-top: 3rem;
+    }
+    .why-card {
+      border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.5rem; background: var(--bg);
+      transition: border-color 0.3s;
+    }
+    .why-card:hover { border-color: rgba(79,110,247,0.4); }
+    .why-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .why-card p { font-size: 0.85rem; color: var(--muted); }
+    .why-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--blue); margin-bottom: 0.75rem;
+    }
+
+    /* ── HOW IT WORKS ── */
+    #process { background: var(--bg); }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0; margin-top: 3rem; position: relative;
+    }
+    .process-step {
+      padding: 2rem 1.5rem;
+      border: 1px solid var(--border);
+      border-right: none; position: relative;
+    }
+    .process-step:last-child { border-right: 1px solid var(--border); }
+    .step-num {
+      font-size: 3rem; font-weight: 900; letter-spacing: -0.04em;
+      background: linear-gradient(135deg, rgba(79,110,247,0.3) 0%, transparent 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; line-height: 1; margin-bottom: 1rem;
+    }
+    .process-step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .process-step p { font-size: 0.85rem; color: var(--muted); }
+
+    /* ── CTA SECTION ── */
+    #contact {
+      background: var(--bg2);
+      text-align: center;
+    }
+    .cta-box {
+      max-width: 620px; margin: 0 auto;
+      background: var(--bg3); border: 1px solid rgba(79,110,247,0.25);
+      border-radius: 20px; padding: 3.5rem 3rem;
+      position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 300px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    }
+    .cta-box h2 { margin: 0 auto 1rem; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    .cta-box p { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
+    .demo-form {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-input {
+      width: 100%; padding: 0.8rem 1rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; color: var(--text); font-size: 0.9rem;
+      font-family: inherit; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus { border-color: var(--blue); }
+    .form-input::placeholder { color: var(--muted); }
+    .form-select {
+      width: 100%; padding: 0.8rem 1rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; color: var(--muted); font-size: 0.9rem;
+      font-family: inherit; outline: none; cursor: pointer;
+      transition: border-color 0.2s; appearance: none;
+    }
+    .form-select:focus { border-color: var(--blue); }
+    .btn-submit {
+      width: 100%; padding: 0.95rem; font-size: 1rem;
+      background: var(--blue); color: #fff; border: none;
+      border-radius: 10px; font-family: inherit; font-weight: 700;
+      cursor: pointer; transition: all 0.2s;
+      box-shadow: 0 0 28px rgba(79,110,247,0.35);
+    }
+    .btn-submit:hover {
+      background: var(--blue-light);
+      box-shadow: 0 0 40px rgba(79,110,247,0.6);
+      transform: translateY(-2px);
+    }
+    .form-note {
+      font-size: 0.78rem; color: var(--muted); text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg); border-top: 1px solid var(--border);
+      padding: 3rem 5%; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand .name { font-weight: 800; font-size: 1rem; }
+    .footer-brand .tagline { font-size: 0.78rem; color: var(--muted); }
+    .footer-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .footer-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── FADE-IN ANIMATION ── */
+    .fade-up {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .products-grid { grid-template-columns: 1fr; }
+      .product-card.wide { grid-column: span 1; grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-step { border-right: 1px solid var(--border); }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-divider { display: none; }
+    }
+    @media (max-width: 600px) {
+      .cta-box { padding: 2rem 1.5rem; }
+      .process-steps { grid-template-columns: 1fr; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="pulse-icon">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 10h3l2-6 4 12 2-8 1.5 4H18" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    Pulse
+  </a>
+  <ul class="nav-links">
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#products">Platform</a></li>
+    <li><a href="#why">Why Pulse</a></li>
+    <li><a href="#process">How It Works</a></li>
+  </ul>
+  <a href="#contact" class="btn btn-primary">Request a Demo</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+
+    <!-- LEFT: Photo + Dashboard Overlay -->
+    <div class="hero-visual fade-up">
+
+      <!-- Layer 1: Production photo -->
+      <div class="hero-photo-layer">
+        <img src="Benefits-of-in-house-production-3.jpg" alt="Print production floor" />
+      </div>
+
+      <!-- Layer 2: Dashboard cards -->
+      <div class="hero-cards-layer">
+
+      <!-- Live stats card -->
+      <div class="dash-card">
+        <div class="dash-card-top">
+          <span class="dash-label">Today's Shop Overview</span>
+          <span class="dash-live">Live</span>
+        </div>
+        <div class="dash-stat-row">
+          <div class="dash-stat blue">
+            <div class="val">24</div>
+            <div class="key">Active Jobs</div>
+          </div>
+          <div class="dash-stat green">
+            <div class="val">11</div>
+            <div class="key">Completed</div>
+          </div>
+          <div class="dash-stat cyan">
+            <div class="val">3</div>
+            <div class="key">Due Today</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job tickets card -->
+      <div class="dash-card">
+        <div class="dash-card-top">
+          <span class="dash-label">Job Tickets</span>
+        </div>
+        <div class="job-rows">
+          <div class="job-row">
+            <div class="job-dot green"></div>
+            <span class="job-name">ABC Corp — Business Cards</span>
+            <span class="job-deadline">Due 2pm</span>
+            <span class="job-status done">Done</span>
+          </div>
+          <div class="job-row">
+            <div class="job-dot blue"></div>
+            <span class="job-name">Metro Realty — Banners</span>
+            <span class="job-deadline">Due 4pm</span>
+            <span class="job-status press">On Press</span>
+          </div>
+          <div class="job-row">
+            <div class="job-dot yellow"></div>
+            <span class="job-name">Green Co — Flyers × 5000</span>
+            <span class="job-deadline">Due Tomorrow</span>
+            <span class="job-status review">Review</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress card -->
+      <div class="dash-card">
+        <div class="dash-card-top">
+          <span class="dash-label">Production Flow</span>
+        </div>
+        <div class="dash-progress-row">
+          <div class="prog-item">
+            <span class="prog-label">CRM Leads</span>
+            <div class="prog-bar-bg"><div class="prog-bar" style="width:82%"></div></div>
+            <span class="prog-val">82%</span>
+          </div>
+          <div class="prog-item">
+            <span class="prog-label">Design Queue</span>
+            <div class="prog-bar-bg"><div class="prog-bar" style="width:65%"></div></div>
+            <span class="prog-val">65%</span>
+          </div>
+          <div class="prog-item">
+            <span class="prog-label">Press Capacity</span>
+            <div class="prog-bar-bg"><div class="prog-bar" style="width:91%"></div></div>
+            <span class="prog-val">91%</span>
+          </div>
+        </div>
+      </div>
+
+      </div><!-- end hero-cards-layer -->
+    </div>
+
+    <!-- RIGHT: Copy + CTAs -->
+    <div class="hero-content">
+      <div class="hero-badge fade-up">
+        <span class="badge-dot"></span>
+        5 Modules · 1 Platform
+      </div>
+      <h1 class="fade-up">
+        No Mess in the<br />
+        Printing House.<br />
+        <span class="gradient-text">Know Your Numbers.</span>
+      </h1>
+      <p class="hero-sub fade-up">
+        The user-friendly management platform built for small and mid-size print shops. Easy to adopt, easy to run: From first quote to delivered job.
+      </p>
+      <div class="hero-ctas fade-up">
+        <a href="#contact" class="btn btn-primary btn-primary-lg">Request a Demo</a>
+      </div>
+      <div class="hero-stats fade-up">
+        <div class="hero-stat">
+          <div class="num">5</div>
+          <div class="label">Integrated Modules</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="num">1</div>
+          <div class="label">Platform for Everything</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="num">SMB</div>
+          <div class="label">Print Shops, Built for You</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── MODULES ── -->
+<section id="modules" style="background: var(--bg); padding: 4rem 5%;">
+  <div class="modules-grid fade-up">
+
+    <!-- 01 CRM -->
+    <div class="mc">
+      <div class="mc-photo">
+        <img src="crm-operator.png" alt="Operator with headset talking to client" />
+        <div class="mc-photo-overlay"></div>
+        <div class="mc-photo-icon">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+            <circle cx="9" cy="7" r="3.5" stroke="#7b93ff" stroke-width="1.7"/>
+            <path d="M2 20c0-3.5 3.1-6 7-6s7 2.5 7 6" stroke="#7b93ff" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M17 11l2 2 4-4" stroke="#22d3ee" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="mc-num">01</div>
+      <h3 class="mc-title">Pulse CRM</h3>
+      <p class="mc-desc">Every client, quote, and order — tracked. Send estimates, follow up automatically, close more jobs.</p>
+      <ul class="mc-list">
+        <li>Quote &amp; Estimate Builder</li>
+        <li>Lead Pipeline</li>
+        <li>Client History</li>
+        <li>Auto Follow-ups</li>
+      </ul>
+    </div>
+
+    <!-- 02 Design Manager -->
+    <div class="mc">
+      <div class="mc-photo">
+        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&q=80" alt="Graphic Designer" loading="lazy" />
+        <div class="mc-photo-overlay"></div>
+        <div class="mc-photo-icon">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+            <path d="M3 18L13 8l3.5 3.5L6.5 21.5H3V18z" stroke="#7b93ff" stroke-width="1.7" stroke-linejoin="round"/>
+            <path d="M11 10l3.5 3.5" stroke="#7b93ff" stroke-width="1.7"/>
+            <circle cx="19" cy="5" r="2.2" stroke="#22d3ee" stroke-width="1.7"/>
+          </svg>
+        </div>
+      </div>
+      <div class="mc-num">02</div>
+      <h3 class="mc-title">Pulse Design Manager</h3>
+      <p class="mc-desc">Brief to approved artwork in one thread. File versions, designer tasks, client proofs — no email chains.</p>
+      <ul class="mc-list">
+        <li>File Version Control</li>
+        <li>Client Proof Approval</li>
+        <li>Designer Assignment</li>
+        <li>Artwork Library</li>
+      </ul>
+    </div>
+
+    <!-- 03 Production -->
+    <div class="mc">
+      <div class="mc-photo">
+        <img src="360_F_547005038_IdI8NXyotIrbN9UCmi1jZk4SSl7hxpHC.jpg" alt="Operator working on large format printing press" />
+        <div class="mc-photo-overlay"></div>
+        <div class="mc-photo-icon">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+            <rect x="3" y="9" width="18" height="10" rx="2" stroke="#7b93ff" stroke-width="1.7"/>
+            <path d="M7 9V6h10v3" stroke="#7b93ff" stroke-width="1.7" stroke-linejoin="round"/>
+            <rect x="7" y="14" width="7" height="3" rx="1" stroke="#22d3ee" stroke-width="1.4"/>
+            <circle cx="18" cy="14" r="1.3" fill="#22d3ee"/>
+          </svg>
+        </div>
+      </div>
+      <div class="mc-num">03</div>
+      <h3 class="mc-title">Pulse Production</h3>
+      <p class="mc-desc">Real-time production board. Job tickets flow from approved artwork straight to the press queue.</p>
+      <ul class="mc-list">
+        <li>Auto Job Ticket Creation</li>
+        <li>Press Scheduling</li>
+        <li>Live Status Board</li>
+        <li>Deadline Alerts</li>
+      </ul>
+    </div>
+
+    <!-- 04 Employee Management -->
+    <div class="mc">
+      <div class="mc-photo">
+        <img src="https://images.unsplash.com/photo-1612831455359-970e23a1e4e9?w=500&q=80" alt="Clock-in clock-out shift management" loading="lazy" />
+        <div class="mc-photo-overlay"></div>
+        <div class="mc-photo-icon">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+            <circle cx="8" cy="7" r="3" stroke="#7b93ff" stroke-width="1.7"/>
+            <circle cx="16" cy="7" r="3" stroke="#22d3ee" stroke-width="1.7"/>
+            <path d="M2 20c0-3 2.7-5 6-5s6 2 6 5" stroke="#7b93ff" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M16 15c2.5 0 4.5 1.8 4.5 4.5" stroke="#22d3ee" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="mc-num">04</div>
+      <h3 class="mc-title">Pulse HR</h3>
+      <p class="mc-desc">Shifts, time-off, onboarding — all in one place. No more spreadsheets. No more guessing who's in.</p>
+      <ul class="mc-list">
+        <li>Shift Scheduling</li>
+        <li>Time &amp; Attendance</li>
+        <li>Time-Off Requests</li>
+        <li>Staff Onboarding</li>
+      </ul>
+    </div>
+
+    <!-- 05 Broker Websites -->
+    <div class="mc mc-highlight">
+      <div class="mc-photo">
+        <img src="PrintPapa-SocialCoverImage.jpg" alt="Broker printing website storefront" />
+        <div class="mc-photo-overlay"></div>
+        <div class="mc-photo-icon">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+            <circle cx="12" cy="12" r="9" stroke="#22d3ee" stroke-width="1.7"/>
+            <path d="M12 3c-2.5 3-4 5.5-4 9s1.5 6 4 9" stroke="#22d3ee" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M12 3c2.5 3 4 5.5 4 9s-1.5 6-4 9" stroke="#22d3ee" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M3 12h18" stroke="#22d3ee" stroke-width="1.4"/>
+          </svg>
+        </div>
+      </div>
+      <div class="mc-num">05</div>
+      <h3 class="mc-title">Broker Websites</h3>
+      <p class="mc-desc">White-label storefronts for print brokers. They sell under their brand — you handle production.</p>
+      <ul class="mc-list">
+        <li>White-Label Ready</li>
+        <li>Custom Domain</li>
+        <li>Automated Quoting</li>
+        <li>Broker Dashboard</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+  .mc {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.75rem 1.5rem;
+    display: flex; flex-direction: column; gap: 0;
+    position: relative; overflow: hidden;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .mc::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    opacity:0; transition: opacity 0.25s;
+  }
+  .mc:hover { border-color: rgba(79,110,247,0.4); transform: translateY(-4px); }
+  .mc:hover::before { opacity: 1; }
+  .mc-highlight { border-color: rgba(34,211,238,0.25); }
+  .mc-highlight::before { opacity: 0.5; }
+  .mc-num {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--blue-light); margin-bottom: 1rem;
+  }
+  .mc-photo {
+    width: calc(100% + 3rem); margin: -1.75rem -1.5rem 1.25rem;
+    height: 200px; border-radius: 14px 14px 0 0; overflow: hidden;
+    position: relative; flex-shrink: 0;
+  }
+  .mc-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block; transition: transform 0.5s ease;
+    filter: brightness(0.85);
+  }
+  .mc:hover .mc-photo img { transform: scale(1.06); filter: brightness(0.95); }
+  .mc-photo-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(6,6,14,0.75) 100%);
+  }
+  .mc-highlight .mc-photo-overlay {
+    background: linear-gradient(180deg, transparent 50%, rgba(6,6,14,0.75) 100%);
+  }
+  .mc-photo-icon {
+    position: absolute; bottom: 12px; left: 14px;
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--blue);
+    border: 1px solid rgba(255,255,255,0.25);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(79,110,247,0.45);
+  }
+  .mc-title { font-size: 1rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+  .mc-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; flex: 1; }
+  .mc-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+  .mc-list li {
+    font-size: 0.75rem; color: var(--muted); font-weight: 500;
+    padding-left: 1rem; position: relative;
+  }
+  .mc-list li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--blue-light); font-size: 0.7rem;
+  }
+  .mc-highlight .mc-list li::before { color: var(--cyan); }
+
+  @media (max-width: 1100px) {
+    .modules-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 700px) {
+    .modules-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 460px) {
+    .modules-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<!-- ── PROBLEM + FORM ── -->
+<section id="problem" style="background: var(--bg2); padding: 6rem 5%;">
+
+  <!-- Full-width heading -->
+  <div style="max-width:1200px; margin:0 auto 2.5rem;">
+    <span class="section-label">The Problem</span>
+    <h2 style="margin-bottom: 0.5rem;">Sound familiar?</h2>
+    <p class="section-sub">Most print shops run on spreadsheets, phone calls, and hope. Pulse fixes that.</p>
+  </div>
+
+  <div class="pf-layout">
+
+    <!-- LEFT: Problems 2x3 -->
+    <div class="pf-left">
+      <div class="pf-grid">
+        <div class="pf-card fade-up">
+          <svg viewBox="0 0 22 22" fill="none" width="20" height="20"><rect x="4" y="2" width="14" height="18" rx="2" stroke="#7b93ff" stroke-width="1.6"/><path d="M8 7h6M8 11h6M8 15h4" stroke="#7b93ff" stroke-width="1.4" stroke-linecap="round"/></svg>
+          <h3>Lost job tickets</h3>
+          <p>Jobs fall through the cracks. Nobody knows where a file is or who approved the proof.</p>
+        </div>
+        <div class="pf-card fade-up">
+          <svg viewBox="0 0 22 22" fill="none" width="20" height="20"><circle cx="11" cy="11" r="8" stroke="#7b93ff" stroke-width="1.6"/><path d="M8 14s1-2 3-2 3 2 3 2" stroke="#22d3ee" stroke-width="1.4" stroke-linecap="round"/><circle cx="8.5" cy="9.5" r="1" fill="#7b93ff"/><circle cx="13.5" cy="9.5" r="1" fill="#7b93ff"/></svg>
+          <h3>Designer chaos</h3>
+          <p>Artworks across emails, Dropbox, and sticky notes. No audit trail on revisions.</p>
+        </div>
+        <div class="pf-card fade-up">
+          <svg viewBox="0 0 22 22" fill="none" width="20" height="20"><path d="M4 4h4l2 5-2.5 1.5A11 11 0 0011 14l1.5-2.5L18 14v4a1 1 0 01-1 1C8 19 3 14 3 5a1 1 0 011-1z" stroke="#7b93ff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <h3>No customer history</h3>
+          <p>A client calls back. No one knows what they ordered or what they were quoted.</p>
+        </div>
+        <div class="pf-card fade-up">
+          <svg viewBox="0 0 22 22" fill="none" width="20" height="20"><circle cx="8" cy="7" r="3" stroke="#7b93ff" stroke-width="1.6"/><circle cx="14" cy="7" r="3" stroke="#22d3ee" stroke-width="1.6"/><path d="M2 19c0-3 2.7-5 6-5s6 2 6 5" stroke="#7b93ff" stroke-width="1.6" stroke-linecap="round"/><path d="M14 14c2.5 0 4 1.5 4 4" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>HR done in Excel</h3>
+          <p>Shifts, time off, onboarding — all manual. One resignation away from losing everything.</p>
+        </div>
+        <div class="pf-card fade-up">
+          <svg viewBox="0 0 22 22" fill="none" width="20" height="20"><circle cx="11" cy="11" r="8" stroke="#7b93ff" stroke-width="1.6"/><path d="M8 11c0-2.5 1.5-4 3-4M14 11c0 2.5-1.5 4-3 4" stroke="#22d3ee" stroke-width="1.4" stroke-linecap="round"/><path d="M7 11h8" stroke="#7b93ff" stroke-width="1.4"/></svg>
+          <h3>No broker storefront</h3>
+          <p>Resellers hand-write quotes. No branded presence, no automation, no professional look.</p>
+        </div>
+        <div class="pf-card fade-up">
+          <svg viewBox="0 0 22 22" fill="none" width="20" height="20"><rect x="2" y="6" width="8" height="6" rx="1.5" stroke="#7b93ff" stroke-width="1.6"/><rect x="12" y="10" width="8" height="6" rx="1.5" stroke="#22d3ee" stroke-width="1.6"/><path d="M10 9h2M10 13h2" stroke="#7b93ff" stroke-width="1.4" stroke-linecap="round"/></svg>
+          <h3>Five tools, zero sync</h3>
+          <p>Your team switches apps all day. Data is duplicated, stale, or simply missing.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="pf-right fade-up">
+      <div class="pf-form-box">
+        <span class="section-label" style="display:block; margin-bottom:0.5rem;">Get Started</span>
+        <h2 style="font-size:1.75rem; margin-bottom:0.5rem;">See Pulse in action.</h2>
+        <p style="color:var(--muted); font-size:0.88rem; margin-bottom:1.5rem;">Tell us about your print shop and we'll show you exactly how Pulse transforms your workflow — live, in 30 minutes.</p>
+        <form class="demo-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <input class="form-input" type="text" placeholder="Your name" required />
+            <input class="form-input" type="email" placeholder="Work email" required />
+          </div>
+          <div class="form-row">
+            <input class="form-input" type="text" placeholder="Print shop name" required />
+            <input class="form-input" type="tel" placeholder="Phone number" />
+          </div>
+          <select class="form-select">
+            <option value="" disabled selected>How many employees?</option>
+            <option>1–5 employees</option>
+            <option>6–20 employees</option>
+            <option>21–50 employees</option>
+            <option>50+ employees</option>
+          </select>
+          <select class="form-select">
+            <option value="" disabled selected>Which module interests you most?</option>
+            <option>Pulse CRM</option>
+            <option>Pulse Design Manager</option>
+            <option>Pulse Production</option>
+            <option>Pulse HR</option>
+            <option>Broker Websites</option>
+            <option>The full platform</option>
+          </select>
+          <button type="submit" class="btn-submit">Request My Free Demo →</button>
+          <p class="form-note">No commitment. We respond within one business day.</p>
+        </form>
+        <div id="form-success" style="display:none; padding:1.25rem; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.25); border-radius:12px; color:var(--cyan); font-weight:600; margin-top:1rem; text-align:center;">
+          ✓ Request received! We'll be in touch within one business day.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .pf-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .pf-left { padding-top: 0; }
+  .pf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .pf-card {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .pf-card:hover { border-color: rgba(79,110,247,0.35); transform: translateY(-2px); }
+  .pf-card svg { margin-bottom: 0.65rem; }
+  .pf-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .pf-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+  .pf-form-box {
+    background: var(--bg3); border: 1px solid rgba(79,110,247,0.2);
+    border-radius: 18px; padding: 2rem;
+    position: sticky; top: 90px;
+  }
+  .pf-right { align-self: start; margin-top: 0; }
+  @media (max-width: 1000px) {
+    .pf-layout { grid-template-columns: 1fr; }
+    .pf-form-box { position: static; }
+  }
+  @media (max-width: 600px) {
+    .pf-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+
+
+<!-- ── BEFORE / AFTER ── -->
+<section id="transformation" style="background: var(--bg); padding: 6rem 5%;">
+  <div style="text-align:center; margin-bottom:3.5rem;">
+    <span class="section-label">The Transformation</span>
+    <h2 style="margin:0 auto; max-width:600px;">Your shop, before and after Pulse.</h2>
+  </div>
+
+  <div class="ba-layout fade-up">
+
+    <!-- BEFORE -->
+    <div class="ba-side ba-before">
+      <div class="ba-badge ba-badge-before">BEFORE</div>
+      <div class="ba-title">Chaos Mode</div>
+      <p class="ba-sub">Running on calls, sticky notes, and spreadsheets.</p>
+
+      <div class="ba-items">
+        <div class="ba-item chaos">
+          <span class="ba-item-icon">📋</span>
+          <div>
+            <strong>Job ticket #247</strong>
+            <span>Where is this file?? Which machine?</span>
+          </div>
+          <span class="ba-tag-bad">LOST</span>
+        </div>
+        <div class="ba-item chaos">
+          <span class="ba-item-icon">📧</span>
+          <div>
+            <strong>Metro Realty proof</strong>
+            <span>Email chain v1 v2 FINAL FINAL2.ai</span>
+          </div>
+          <span class="ba-tag-bad">UNCLEAR</span>
+        </div>
+        <div class="ba-item chaos">
+          <span class="ba-item-icon">📞</span>
+          <div>
+            <strong>Client called again</strong>
+            <span>"What's the status of my order?"</span>
+          </div>
+          <span class="ba-tag-bad">NO DATA</span>
+        </div>
+        <div class="ba-item chaos">
+          <span class="ba-item-icon">📊</span>
+          <div>
+            <strong>Shift scheduling</strong>
+            <span>Excel sheet on John's desktop. John is on vacation.</span>
+          </div>
+          <span class="ba-tag-bad">STUCK</span>
+        </div>
+        <div class="ba-item chaos">
+          <span class="ba-item-icon">⚠️</span>
+          <div>
+            <strong>3 deadlines missed this week</strong>
+            <span>No alerts. Nobody saw it coming.</span>
+          </div>
+          <span class="ba-tag-bad">MISSED</span>
+        </div>
+      </div>
+
+      <div class="ba-score ba-score-bad">
+        <span class="ba-score-num">❌</span>
+        <span>No visibility. No control. No numbers.</span>
+      </div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="ba-divider">
+      <div class="ba-arrow-wrap">
+        <div class="ba-arrow-line"></div>
+        <svg class="ba-arrow-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="23" fill="#4f6ef7" fill-opacity="0.15" stroke="#4f6ef7" stroke-width="1.5"/>
+          <path d="M16 24h16M26 18l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="ba-arrow-label">Pulse</div>
+      </div>
+    </div>
+
+    <!-- AFTER -->
+    <div class="ba-side ba-after">
+      <div class="ba-badge ba-badge-after">AFTER</div>
+      <div class="ba-title">In Control</div>
+      <p class="ba-sub">Every job tracked. Every number visible. Zero chaos.</p>
+
+      <!-- Live metrics bar -->
+      <div class="ba-metrics">
+        <div class="ba-metric">
+          <span class="ba-metric-val" style="color:#4ade80;">98%</span>
+          <span class="ba-metric-key">On-Time Rate</span>
+        </div>
+        <div class="ba-metric">
+          <span class="ba-metric-val" style="color:var(--blue-light);">31</span>
+          <span class="ba-metric-key">Active Jobs</span>
+        </div>
+        <div class="ba-metric">
+          <span class="ba-metric-val" style="color:var(--cyan);">4.2h</span>
+          <span class="ba-metric-key">Avg Turnaround</span>
+        </div>
+        <div class="ba-metric">
+          <span class="ba-metric-val" style="color:#fbbf24;">$0</span>
+          <span class="ba-metric-key">Missed Deadlines</span>
+        </div>
+      </div>
+
+      <div class="ba-items">
+        <div class="ba-item clean">
+          <span class="ba-item-icon">🖨️</span>
+          <div>
+            <strong>Metro Realty — Banners</strong>
+            <span>Proof approved · On press · Due 4:00 PM</span>
+          </div>
+          <span class="ba-tag-good">ON TRACK</span>
+        </div>
+        <div class="ba-item clean">
+          <span class="ba-item-icon">🎨</span>
+          <div>
+            <strong>Green Co — Flyers ×5000</strong>
+            <span>Design approved · Queued for press · Sarah</span>
+          </div>
+          <span class="ba-tag-good">QUEUED</span>
+        </div>
+        <div class="ba-item clean">
+          <span class="ba-item-icon">👤</span>
+          <div>
+            <strong>ABC Corp called</strong>
+            <span>Order history loaded instantly. Quote sent in 2 min.</span>
+          </div>
+          <span class="ba-tag-good">HANDLED</span>
+        </div>
+        <div class="ba-item clean">
+          <span class="ba-item-icon">📅</span>
+          <div>
+            <strong>This week's shifts</strong>
+            <span>All scheduled. Auto-reminders sent to team.</span>
+          </div>
+          <span class="ba-tag-good">DONE</span>
+        </div>
+        <div class="ba-item clean">
+          <span class="ba-item-icon">🔔</span>
+          <div>
+            <strong>Deadline in 2 hours</strong>
+            <span>Alert sent to press operator + manager.</span>
+          </div>
+          <span class="ba-tag-good">ALERTED</span>
+        </div>
+      </div>
+
+      <div class="ba-score ba-score-good">
+        <span class="ba-score-num">✓</span>
+        <span>Full control. Real-time numbers. Every job, every person.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:3.5rem;">
+    <a href="#problem" class="btn btn-primary btn-primary-lg">See How We Do It →</a>
+  </div>
+</section>
+
+<style>
+  .ba-layout {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 0;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .ba-side {
+    padding: 2.5rem;
+    display: flex; flex-direction: column; gap: 1.25rem;
+  }
+  .ba-before {
+    background: rgba(239,68,68,0.04);
+    border-right: 1px solid rgba(239,68,68,0.12);
+  }
+  .ba-after {
+    background: rgba(79,110,247,0.04);
+    border-left: 1px solid rgba(79,110,247,0.12);
+  }
+  .ba-badge {
+    display: inline-block; font-size: 0.68rem; font-weight: 800;
+    letter-spacing: 0.14em; padding: 0.3rem 0.75rem;
+    border-radius: 100px; width: fit-content;
+  }
+  .ba-badge-before {
+    background: rgba(239,68,68,0.12); color: #f87171;
+    border: 1px solid rgba(239,68,68,0.25);
+  }
+  .ba-badge-after {
+    background: rgba(74,222,128,0.1); color: #4ade80;
+    border: 1px solid rgba(74,222,128,0.25);
+  }
+  .ba-title {
+    font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em;
+  }
+  .ba-sub { font-size: 0.85rem; color: var(--muted); margin-top: -0.5rem; }
+
+  .ba-items { display: flex; flex-direction: column; gap: 0.6rem; }
+  .ba-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.75rem 1rem; border-radius: 10px;
+    font-size: 0.82rem;
+  }
+  .ba-item.chaos {
+    background: rgba(239,68,68,0.06);
+    border: 1px solid rgba(239,68,68,0.15);
+  }
+  .ba-item.clean {
+    background: rgba(79,110,247,0.06);
+    border: 1px solid rgba(79,110,247,0.15);
+  }
+  .ba-item-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .ba-item div { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .ba-item strong { font-weight: 700; color: var(--text); font-size: 0.82rem; }
+  .ba-item span { color: var(--muted); font-size: 0.75rem; }
+  .ba-tag-bad, .ba-tag-good {
+    font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em;
+    padding: 0.2rem 0.5rem; border-radius: 5px; flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .ba-tag-bad { background: rgba(239,68,68,0.15); color: #f87171; }
+  .ba-tag-good { background: rgba(74,222,128,0.12); color: #4ade80; }
+
+  .ba-score {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.9rem 1rem; border-radius: 10px;
+    font-size: 0.82rem; font-weight: 600;
+    margin-top: auto;
+  }
+  .ba-score-bad { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); color: #f87171; }
+  .ba-score-good { background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2); color: #4ade80; }
+  .ba-score-num { font-size: 1.1rem; }
+
+  .ba-metrics {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+  .ba-metric {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 10px; padding: 0.75rem 0.5rem;
+    text-align: center; display: flex; flex-direction: column; gap: 3px;
+  }
+  .ba-metric-val { font-size: 1.3rem; font-weight: 900; letter-spacing: -0.02em; }
+  .ba-metric-key { font-size: 0.68rem; color: var(--muted); }
+
+  /* Center divider with arrow */
+  .ba-divider {
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg3); position: relative;
+  }
+  .ba-arrow-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  }
+  .ba-arrow-line {
+    width: 2px; height: 40px;
+    background: linear-gradient(180deg, transparent, var(--blue));
+  }
+  .ba-arrow-svg { width: 48px; height: 48px; }
+  .ba-arrow-label {
+    font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--blue-light);
+  }
+
+  @media (max-width: 900px) {
+    .ba-layout { grid-template-columns: 1fr; }
+    .ba-divider {
+      height: 60px; width: 100%;
+      border-top: 1px solid rgba(79,110,247,0.12);
+      border-bottom: 1px solid rgba(79,110,247,0.12);
+    }
+    .ba-arrow-wrap { flex-direction: row; gap: 1rem; }
+    .ba-arrow-line { display: none; }
+    .ba-metrics { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand">
+    <div class="pulse-icon">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 10h3l2-6 4 12 2-8 1.5 4H18" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="name">Pulse</div>
+      <div class="tagline">Print House Automation Management Platform</div>
+    </div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#products">Platform</a></li>
+    <li><a href="#why">Why Pulse</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#contact">Request Demo</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Pulse. All rights reserved.</div>
+</footer>
+
+<script>
+  // Intersection Observer for fade-up animations
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // Form submit handler
+  function handleSubmit(e) {
+    e.preventDefault();
+    e.target.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+</script>
+</body>
+</html>
