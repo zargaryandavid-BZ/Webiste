@@ -1086,15 +1086,15 @@
     border: 1px solid rgba(79,110,247,0.28);
     transition: color 0.2s, background 0.2s, border-color 0.2s;
   }
-  .mc-eye:hover {
+  .mc-eye svg { display: none; }
+  .mc-eye .eye-open { display: block; }
+  .mc.creds-open .mc-eye .eye-open { display: none; }
+  .mc.creds-open .mc-eye .eye-off { display: block; }
+  .mc-eye:hover,
+  .mc.creds-open .mc-eye {
     color: var(--cyan);
     background: rgba(34,211,238,0.12);
     border-color: rgba(34,211,238,0.35);
-  }
-  .mc-eye.is-open {
-    color: var(--cyan);
-    background: rgba(34,211,238,0.15);
-    border-color: rgba(34,211,238,0.4);
   }
   .mc-poc {
     flex-shrink: 0;
@@ -1107,6 +1107,7 @@
     line-height: 1.2;
   }
   .mc-creds {
+    display: none;
     margin-bottom: 0.75rem;
     padding: 0.55rem 0.65rem;
     border-radius: 8px;
@@ -1115,10 +1116,8 @@
     font-size: 0.68rem;
     line-height: 1.45;
   }
-  .mc-creds-hidden {
-    color: var(--muted);
-    font-style: italic;
-  }
+  .mc.creds-open .mc-creds { display: block; }
+  .mc-creds-hidden { display: none; }
   .mc-creds-shown {
     display: flex; flex-direction: column; gap: 0.25rem;
     color: var(--text);
@@ -1614,17 +1613,9 @@
     e.preventDefault();
     e.stopPropagation();
     const card = btn.closest('.mc');
-    const hidden = card.querySelector('.mc-creds-hidden');
-    const shown = card.querySelector('.mc-creds-shown');
-    const openEye = btn.querySelector('.eye-open');
-    const offEye = btn.querySelector('.eye-off');
-    const isOpen = btn.classList.toggle('is-open');
+    const isOpen = card.classList.toggle('creds-open');
     btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     btn.setAttribute('aria-label', isOpen ? 'Hide login credentials' : 'Show login credentials');
-    if (hidden) hidden.hidden = isOpen;
-    if (shown) shown.hidden = !isOpen;
-    if (openEye) openEye.hidden = isOpen;
-    if (offEye) offEye.hidden = !isOpen;
   }
 
   // Form submit handler
