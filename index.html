@@ -9,7 +9,7 @@
   <meta property="og:title" content="Pulse — Print House Automation &amp; Management Platform" />
   <meta property="og:description" content="The all-in-one platform built for printing houses. Run every job, own every deadline." />
   <meta property="og:type" content="website" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233237FF'/%3E%3Cpath d='M4 16h5l3-8 5 16 3-10 2 6h6' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f6ef7'/%3E%3Cpath d='M4 16h5l3-8 5 16 3-10 2 6h6' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -267,32 +267,13 @@
     .hero-divider { width: 1px; height: 36px; background: var(--border); }
 
     @media (max-width: 900px) {
-      #home { min-height: auto; padding: 6rem 5% 4rem; }
-      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-visual {
-        order: 1;
-        min-height: 0;
-        aspect-ratio: 16 / 10;
-        max-height: 220px;
-        border-radius: 16px;
-      }
-      .hero-cards-layer { display: none; }
-      .hero-content { order: 2; text-align: center; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-visual { order: 2; }
+      .hero-content { order: 1; text-align: center; }
       h1 { margin: 0 auto 1.5rem; }
       .hero-sub { margin: 0 auto 2.5rem; }
       .hero-ctas { justify-content: center; }
-      .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.75rem;
-        width: 100%;
-        margin-top: 2rem;
-        justify-content: stretch;
-      }
-      .hero-stat { text-align: center; }
-      .hero-stat .num { font-size: clamp(1.25rem, 5vw, 1.7rem); }
-      .hero-stat .label { font-size: 0.62rem; line-height: 1.25; }
-      .hero-divider { display: none; }
+      .hero-stats { justify-content: center; }
     }
 
     /* ── SECTION SHARED ── */
@@ -453,9 +434,10 @@
     .process-step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; }
     .process-step p { font-size: 0.85rem; color: var(--muted); }
 
-    /* ── GET STARTED / FORM ── */
-    #get-started {
-      scroll-margin-top: 5.5rem;
+    /* ── CTA SECTION ── */
+    #contact {
+      background: var(--bg2);
+      text-align: center;
     }
     .cta-box {
       max-width: 620px; margin: 0 auto;
@@ -518,6 +500,14 @@
     .footer-brand { display: flex; align-items: center; gap: 10px; }
     .footer-brand .name { font-weight: 800; font-size: 1rem; }
     .footer-brand .tagline { font-size: 0.78rem; color: var(--muted); }
+    .footer-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .footer-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
     .footer-copy { font-size: 0.8rem; color: var(--muted); }
 
     /* ── FADE-IN ANIMATION ── */
@@ -535,6 +525,7 @@
       .process-steps { grid-template-columns: 1fr 1fr; }
       .process-step { border-right: 1px solid var(--border); }
       .form-row { grid-template-columns: 1fr; }
+      .hero-divider { display: none; }
     }
     @media (max-width: 600px) {
       .cta-box { padding: 2rem 1.5rem; }
@@ -561,7 +552,7 @@
     <li><a href="#why">Why Pulse</a></li>
     <li><a href="#process">How It Works</a></li>
   </ul>
-  <a href="#get-started" class="btn btn-primary">Request a Demo</a>
+  <a href="#contact" class="btn btn-primary">Request a Demo</a>
 </nav>
 
 <!-- ── HERO ── -->
@@ -575,7 +566,7 @@
 
       <!-- Layer 1: Production photo -->
       <div class="hero-photo-layer">
-        <img src="images/production-floor.jpg" alt="Print production floor" />
+        <img src="production-floor.jpg" alt="Print production floor" />
       </div>
 
       <!-- Layer 2: Dashboard cards -->
@@ -661,7 +652,7 @@
     <div class="hero-content">
       <div class="hero-badge fade-up">
         <span class="badge-dot"></span>
-        5 Modules · 1 Platform
+        7 Modules · 1 Platform
       </div>
       <h1 class="fade-up">
         No Mess in the<br />
@@ -669,14 +660,15 @@
         <span class="gradient-text">Know Your Numbers.</span>
       </h1>
       <p class="hero-sub fade-up">
-        The user-friendly management platform built for small and mid-size print shops. Easy to adopt, easy to run: From first quote to delivered job.
+        The user-friendly management platform built for small and mid-size print shops. Easy to adopt, easy to run — from first quote to delivered job.
       </p>
       <div class="hero-ctas fade-up">
-        <a href="#get-started" class="btn btn-primary btn-primary-lg">Request a Demo</a>
+        <a href="#contact" class="btn btn-primary btn-primary-lg">Request a Demo</a>
+        <a href="#products" class="btn btn-ghost btn-primary-lg">See the Platform</a>
       </div>
       <div class="hero-stats fade-up">
         <div class="hero-stat">
-          <div class="num">5</div>
+          <div class="num">7</div>
           <div class="label">Integrated Modules</div>
         </div>
         <div class="hero-divider"></div>
@@ -700,9 +692,9 @@
   <div class="modules-grid fade-up">
 
     <!-- 01 CRM -->
-    <a class="mc" href="https://bazar-crm-eta.vercel.app/leads" target="_blank" rel="noopener noreferrer">
+    <div class="mc">
       <div class="mc-photo">
-        <img src="images/crm-operator.png" alt="Operator with headset talking to client" />
+        <img src="crm-operator.png" alt="Operator with headset talking to client" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -721,12 +713,12 @@
         <li>Client History</li>
         <li>Auto Follow-ups</li>
       </ul>
-    </a>
+    </div>
 
     <!-- 02 Design Manager -->
-    <a class="mc" href="https://workflow-rho-one.vercel.app/settings/integrations" target="_blank" rel="noopener noreferrer">
+    <div class="mc">
       <div class="mc-photo">
-        <img src="images/designer-at-work-stockcake.jpg" alt="Graphic designer at work" />
+        <img src="design-manager.jpg" onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=85'" alt="Design Manager - color swatches and artwork" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -745,12 +737,12 @@
         <li>Designer Assignment</li>
         <li>Artwork Library</li>
       </ul>
-    </a>
+    </div>
 
     <!-- 03 Production -->
-    <a class="mc" href="https://pulse-jade-five.vercel.app/pages/dashboard.html" target="_blank" rel="noopener noreferrer">
+    <div class="mc">
       <div class="mc-photo">
-        <img src="images/operator-printing-press.jpg" alt="Operator working on large format printing press" />
+        <img src="operator-printing-press.jpg" alt="Operator working on large format printing press" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -770,12 +762,12 @@
         <li>Live Status Board</li>
         <li>Deadline Alerts</li>
       </ul>
-    </a>
+    </div>
 
     <!-- 04 Employee Management -->
-    <a class="mc" href="https://hr-one-beta.vercel.app/admin/dashboard" target="_blank" rel="noopener noreferrer">
+    <div class="mc">
       <div class="mc-photo">
-        <img src="images/Employee-Time-Clocks-for-Your-Time-Tracking-Strategy.jpg" alt="Employee time clock for shift tracking" />
+        <img src="hr-team.jpg" onerror="this.src='https://images.unsplash.com/photo-1612831455359-970e23a1e4e9?w=800&q=85'" alt="HR team management" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -795,12 +787,12 @@
         <li>Time-Off Requests</li>
         <li>Staff Onboarding</li>
       </ul>
-    </a>
+    </div>
 
     <!-- 05 Broker Websites -->
-    <a class="mc mc-highlight" href="https://www.bazaarprinting.com" target="_blank" rel="noopener noreferrer">
+    <div class="mc mc-highlight">
       <div class="mc-photo">
-        <img src="images/broker-storefront.jpg" alt="Broker printing website storefront" />
+        <img src="broker-storefront.jpg" alt="Broker printing website storefront" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -820,7 +812,56 @@
         <li>Automated Quoting</li>
         <li>Broker Dashboard</li>
       </ul>
-    </a>
+    </div>
+
+    <!-- 06 SupplyHUB -->
+    <div class="mc mc-supply">
+      <div class="mc-photo">
+        <img src="supply-hub.jpg" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=85'" alt="Supply stock and inventory management" />
+        <div class="mc-photo-overlay"></div>
+        <div class="mc-photo-icon">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+            <rect x="2" y="7" width="20" height="14" rx="2" stroke="#22d3ee" stroke-width="1.7"/>
+            <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" stroke="#22d3ee" stroke-width="1.7" stroke-linejoin="round"/>
+            <path d="M12 12v4M10 14h4" stroke="#7b93ff" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="mc-num" style="color:var(--cyan);">06</div>
+      <h3 class="mc-title">SupplyHUB</h3>
+      <p class="mc-desc">Continuous automated supply stream. Track stock levels, consumption, and reorder points — zero manual effort.</p>
+      <ul class="mc-list">
+        <li>Stock &amp; Inventory Tracking</li>
+        <li>Consumption Monitoring</li>
+        <li>Auto Reorder Triggers</li>
+        <li>Supply Cost Reports</li>
+      </ul>
+    </div>
+
+    <!-- 07 VendorHUB -->
+    <div class="mc mc-supply">
+      <div class="mc-photo">
+        <img src="vendor-hub.jpg" onerror="this.src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=85'" alt="Vendor network and procurement management" />
+        <div class="mc-photo-overlay"></div>
+        <div class="mc-photo-icon">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+            <circle cx="12" cy="8" r="3" stroke="#22d3ee" stroke-width="1.7"/>
+            <circle cx="4" cy="17" r="2.5" stroke="#7b93ff" stroke-width="1.7"/>
+            <circle cx="20" cy="17" r="2.5" stroke="#7b93ff" stroke-width="1.7"/>
+            <path d="M12 11v3M12 14l-8 3M12 14l8 3" stroke="#22d3ee" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="mc-num" style="color:var(--cyan);">07</div>
+      <h3 class="mc-title">VendorHUB</h3>
+      <p class="mc-desc">Manage your entire vendor network in one place. Send RFQs, compare prices, and approve orders — fast and fully automated.</p>
+      <ul class="mc-list">
+        <li>Vendor Network Management</li>
+        <li>RFQ &amp; Price Requests</li>
+        <li>Product Claims Automation</li>
+        <li>Spend Analytics</li>
+      </ul>
+    </div>
 
   </div>
 </section>
@@ -828,7 +869,7 @@
 <style>
   .modules-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
   }
   .mc {
@@ -837,7 +878,6 @@
     display: flex; flex-direction: column; gap: 0;
     position: relative; overflow: hidden;
     transition: border-color 0.25s, transform 0.25s;
-    text-decoration: none; color: inherit; cursor: pointer;
   }
   .mc::before {
     content:''; position:absolute; top:0; left:0; right:0; height:2px;
@@ -891,7 +931,10 @@
   }
   .mc-highlight .mc-list li::before { color: var(--cyan); }
 
-  @media (max-width: 1100px) {
+  .mc-supply { border-color: rgba(34,211,238,0.2); }
+  .mc-supply::before { opacity: 0.5; background: linear-gradient(90deg, var(--cyan), var(--blue)); }
+
+  @media (max-width: 1300px) {
     .modules-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 700px) {
@@ -952,27 +995,27 @@
 
     <!-- RIGHT: Form -->
     <div class="pf-right fade-up">
-      <div class="pf-form-box" id="get-started">
+      <div class="pf-form-box">
         <span class="section-label" style="display:block; margin-bottom:0.5rem;">Get Started</span>
         <h2 style="font-size:1.75rem; margin-bottom:0.5rem;">See Pulse in action.</h2>
         <p style="color:var(--muted); font-size:0.88rem; margin-bottom:1.5rem;">Tell us about your print shop and we'll show you exactly how Pulse transforms your workflow — live, in 30 minutes.</p>
-        <form class="demo-form" id="demo-form" onsubmit="handleSubmit(event)">
+        <form class="demo-form" onsubmit="handleSubmit(event)">
           <div class="form-row">
-            <input class="form-input" type="text" name="name" placeholder="Your name" required />
-            <input class="form-input" type="email" name="email" placeholder="Work email" required />
+            <input class="form-input" type="text" placeholder="Your name" required />
+            <input class="form-input" type="email" placeholder="Work email" required />
           </div>
           <div class="form-row">
-            <input class="form-input" type="text" name="shop" placeholder="Print shop name" required />
-            <input class="form-input" type="tel" name="phone" placeholder="Phone number" required />
+            <input class="form-input" type="text" placeholder="Print shop name" required />
+            <input class="form-input" type="tel" placeholder="Phone number" />
           </div>
-          <select class="form-select" name="employees" required>
+          <select class="form-select">
             <option value="" disabled selected>How many employees?</option>
             <option>1–5 employees</option>
             <option>6–20 employees</option>
             <option>21–50 employees</option>
             <option>50+ employees</option>
           </select>
-          <select class="form-select" name="module" required>
+          <select class="form-select">
             <option value="" disabled selected>Which module interests you most?</option>
             <option>Pulse CRM</option>
             <option>Pulse Design Manager</option>
@@ -981,12 +1024,9 @@
             <option>Broker Websites</option>
             <option>The full platform</option>
           </select>
-          <button type="submit" class="btn-submit" id="demo-submit">Request My Free Demo →</button>
+          <button type="submit" class="btn-submit">Request My Free Demo →</button>
           <p class="form-note">No commitment. We respond within one business day.</p>
         </form>
-        <div id="form-error" style="display:none; padding:1.25rem; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-radius:12px; color:#f87171; font-weight:600; margin-top:1rem; text-align:center;">
-          Something went wrong. Please try again or email us directly.
-        </div>
         <div id="form-success" style="display:none; padding:1.25rem; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.25); border-radius:12px; color:var(--cyan); font-weight:600; margin-top:1rem; text-align:center;">
           ✓ Request received! We'll be in touch within one business day.
         </div>
@@ -1191,7 +1231,7 @@
   </div>
 
   <div style="text-align:center; margin-top:3.5rem;">
-    <a href="#get-started" class="btn btn-primary btn-primary-lg">See How We Do It →</a>
+    <a href="#problem" class="btn btn-primary btn-primary-lg">See How We Do It →</a>
   </div>
 </section>
 
@@ -1330,6 +1370,12 @@
       <div class="tagline">Print House Automation Management Platform</div>
     </div>
   </div>
+  <ul class="footer-links">
+    <li><a href="#products">Platform</a></li>
+    <li><a href="#why">Why Pulse</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#contact">Request Demo</a></li>
+  </ul>
   <div class="footer-copy">© 2026 Pulse. All rights reserved.</div>
 </footer>
 
@@ -1346,47 +1392,11 @@
   }, { threshold: 0.1 });
   fadeEls.forEach(el => observer.observe(el));
 
-  // Form submit handler — sends all fields to Netlify function, which texts you via Twilio
-  async function handleSubmit(e) {
+  // Form submit handler
+  function handleSubmit(e) {
     e.preventDefault();
-
-    const form = e.target;
-    const submitBtn = document.getElementById('demo-submit');
-    const errorEl = document.getElementById('form-error');
-    const successEl = document.getElementById('form-success');
-
-    errorEl.style.display = 'none';
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-
-    const data = {
-      name: form.name.value.trim(),
-      email: form.email.value.trim(),
-      shop: form.shop.value.trim(),
-      phone: form.phone.value.trim(),
-      employees: form.employees.value,
-      module: form.module.value,
-    };
-
-    try {
-      const res = await fetch('/api/demo-request', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      const payload = await res.json().catch(() => null);
-      if (!res.ok || !payload?.ok) {
-        throw new Error(payload?.error || 'Request failed');
-      }
-
-      form.style.display = 'none';
-      successEl.style.display = 'block';
-    } catch {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Request My Free Demo →';
-      errorEl.style.display = 'block';
-    }
+    e.target.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
   }
 </script>
 </body>
