@@ -692,7 +692,7 @@
   <div class="modules-grid fade-up">
 
     <!-- 01 CRM -->
-    <a class="mc" href="https://bazar-crm-eta.vercel.app/leads" target="_blank" rel="noopener noreferrer">
+    <div class="mc" data-href="https://bazar-crm-eta.vercel.app/leads" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="crm-operator.png" alt="Operator with headset talking to client" />
         <div class="mc-photo-overlay"></div>
@@ -707,7 +707,20 @@
       <div class="mc-num">01</div>
       <div class="mc-title-row">
         <h3 class="mc-title">Pulse CRM</h3>
-        <span class="mc-poc" title="POC readiness">.1</span>
+        <div class="mc-title-actions">
+          <button type="button" class="mc-eye" aria-label="Show login credentials" aria-expanded="false" onclick="toggleCreds(event, this)">
+            <svg class="eye-open" viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+            <svg class="eye-off" viewBox="0 0 24 24" fill="none" width="16" height="16" hidden><path d="M3 3l18 18M10.6 10.6A3 3 0 0012 15a3 3 0 002.4-4.8M9.9 5.2A11 11 0 0112 5c6.5 0 10 7 10 7a18 18 0 01-4.2 4.6M6.1 6.1A18 18 0 002 12s3.5 7 10 7c1.1 0 2.1-.2 3-.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+          <span class="mc-poc" title="POC readiness">.1</span>
+        </div>
+      </div>
+      <div class="mc-creds">
+        <div class="mc-creds-hidden">Login credentials hidden</div>
+        <div class="mc-creds-shown" hidden>
+          <div><span>Email</span> zargaryandavid@gmail.com</div>
+          <div><span>Password</span> Admin2026##</div>
+        </div>
       </div>
       <p class="mc-desc">Every client, quote, and order — tracked. Send estimates, follow up automatically, close more jobs.</p>
       <ul class="mc-list">
@@ -716,10 +729,10 @@
         <li>Client History</li>
         <li>Auto Follow-ups</li>
       </ul>
-    </a>
+    </div>
 
     <!-- 02 Workflow -->
-    <a class="mc" href="https://workflow-rho-one.vercel.app/settings/integrations" target="_blank" rel="noopener noreferrer">
+    <div class="mc" data-href="https://workflow-rho-one.vercel.app/settings/integrations" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="design-manager.jpg" onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=85'" alt="Workflow - color swatches and artwork" />
         <div class="mc-photo-overlay"></div>
@@ -734,7 +747,20 @@
       <div class="mc-num">02</div>
       <div class="mc-title-row">
         <h3 class="mc-title">Workflow</h3>
-        <span class="mc-poc" title="POC readiness">.1</span>
+        <div class="mc-title-actions">
+          <button type="button" class="mc-eye" aria-label="Show login credentials" aria-expanded="false" onclick="toggleCreds(event, this)">
+            <svg class="eye-open" viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+            <svg class="eye-off" viewBox="0 0 24 24" fill="none" width="16" height="16" hidden><path d="M3 3l18 18M10.6 10.6A3 3 0 0012 15a3 3 0 002.4-4.8M9.9 5.2A11 11 0 0112 5c6.5 0 10 7 10 7a18 18 0 01-4.2 4.6M6.1 6.1A18 18 0 002 12s3.5 7 10 7c1.1 0 2.1-.2 3-.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+          <span class="mc-poc" title="POC readiness">.1</span>
+        </div>
+      </div>
+      <div class="mc-creds">
+        <div class="mc-creds-hidden">Login credentials hidden</div>
+        <div class="mc-creds-shown" hidden>
+          <div><span>Email</span> zargaryandavid@bazaarprinting.com</div>
+          <div><span>Password</span> 111111</div>
+        </div>
       </div>
       <p class="mc-desc">Brief to approved artwork in one thread. File versions, designer tasks, client proofs — no email chains.</p>
       <ul class="mc-list">
@@ -743,10 +769,10 @@
         <li>Designer Assignment</li>
         <li>Artwork Library</li>
       </ul>
-    </a>
+    </div>
 
     <!-- 03 Production -->
-    <a class="mc" href="https://pulse-jade-five.vercel.app/pages/dashboard.html" target="_blank" rel="noopener noreferrer">
+    <div class="mc" data-href="https://pulse-jade-five.vercel.app/pages/dashboard.html" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="operator-printing-press.jpg" alt="Operator working on large format printing press" />
         <div class="mc-photo-overlay"></div>
@@ -762,7 +788,20 @@
       <div class="mc-num">03</div>
       <div class="mc-title-row">
         <h3 class="mc-title">Pulse Production</h3>
-        <span class="mc-poc" title="POC readiness">.07</span>
+        <div class="mc-title-actions">
+          <button type="button" class="mc-eye" aria-label="Show login credentials" aria-expanded="false" onclick="toggleCreds(event, this)">
+            <svg class="eye-open" viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+            <svg class="eye-off" viewBox="0 0 24 24" fill="none" width="16" height="16" hidden><path d="M3 3l18 18M10.6 10.6A3 3 0 0012 15a3 3 0 002.4-4.8M9.9 5.2A11 11 0 0112 5c6.5 0 10 7 10 7a18 18 0 01-4.2 4.6M6.1 6.1A18 18 0 002 12s3.5 7 10 7c1.1 0 2.1-.2 3-.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+          <span class="mc-poc" title="POC readiness">.07</span>
+        </div>
+      </div>
+      <div class="mc-creds">
+        <div class="mc-creds-hidden">Login credentials hidden</div>
+        <div class="mc-creds-shown" hidden>
+          <div><span>Email</span> zargaryandavid@bazaarprinting.com</div>
+          <div><span>Password</span> 1111</div>
+        </div>
       </div>
       <p class="mc-desc">Real-time production board. Job tickets flow from approved artwork straight to the press queue.</p>
       <ul class="mc-list">
@@ -771,10 +810,10 @@
         <li>Live Status Board</li>
         <li>Deadline Alerts</li>
       </ul>
-    </a>
+    </div>
 
     <!-- 04 Employee Management -->
-    <a class="mc" href="https://hr-one-beta.vercel.app/admin/dashboard" target="_blank" rel="noopener noreferrer">
+    <div class="mc" data-href="https://hr-one-beta.vercel.app/admin/dashboard" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="hr-team.jpg" onerror="this.src='https://images.unsplash.com/photo-1612831455359-970e23a1e4e9?w=800&q=85'" alt="HR team management" />
         <div class="mc-photo-overlay"></div>
@@ -790,7 +829,20 @@
       <div class="mc-num">04</div>
       <div class="mc-title-row">
         <h3 class="mc-title">Pulse HR</h3>
-        <span class="mc-poc" title="POC readiness">.07</span>
+        <div class="mc-title-actions">
+          <button type="button" class="mc-eye" aria-label="Show login credentials" aria-expanded="false" onclick="toggleCreds(event, this)">
+            <svg class="eye-open" viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+            <svg class="eye-off" viewBox="0 0 24 24" fill="none" width="16" height="16" hidden><path d="M3 3l18 18M10.6 10.6A3 3 0 0012 15a3 3 0 002.4-4.8M9.9 5.2A11 11 0 0112 5c6.5 0 10 7 10 7a18 18 0 01-4.2 4.6M6.1 6.1A18 18 0 002 12s3.5 7 10 7c1.1 0 2.1-.2 3-.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+          <span class="mc-poc" title="POC readiness">.07</span>
+        </div>
+      </div>
+      <div class="mc-creds">
+        <div class="mc-creds-hidden">Login credentials hidden</div>
+        <div class="mc-creds-shown" hidden>
+          <div><span>Email</span> zargaryandavid@bazaarprinting.com</div>
+          <div><span>Password</span> 111111</div>
+        </div>
       </div>
       <p class="mc-desc">Shifts, time-off, onboarding — all in one place. No more spreadsheets. No more guessing who's in.</p>
       <ul class="mc-list">
@@ -799,10 +851,10 @@
         <li>Time-Off Requests</li>
         <li>Staff Onboarding</li>
       </ul>
-    </a>
+    </div>
 
     <!-- 05 Broker Websites -->
-    <a class="mc mc-highlight" href="https://www.bazaarprinting.com" target="_blank" rel="noopener noreferrer">
+    <div class="mc mc-highlight" data-href="https://www.bazaarprinting.com" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="broker-storefront.jpg" alt="Broker printing website storefront" />
         <div class="mc-photo-overlay"></div>
@@ -818,7 +870,19 @@
       <div class="mc-num">05</div>
       <div class="mc-title-row">
         <h3 class="mc-title">Broker Websites</h3>
-        <span class="mc-poc" title="POC readiness">.03</span>
+        <div class="mc-title-actions">
+          <button type="button" class="mc-eye" aria-label="Show login credentials" aria-expanded="false" onclick="toggleCreds(event, this)">
+            <svg class="eye-open" viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+            <svg class="eye-off" viewBox="0 0 24 24" fill="none" width="16" height="16" hidden><path d="M3 3l18 18M10.6 10.6A3 3 0 0012 15a3 3 0 002.4-4.8M9.9 5.2A11 11 0 0112 5c6.5 0 10 7 10 7a18 18 0 01-4.2 4.6M6.1 6.1A18 18 0 002 12s3.5 7 10 7c1.1 0 2.1-.2 3-.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+          <span class="mc-poc" title="POC readiness">.03</span>
+        </div>
+      </div>
+      <div class="mc-creds">
+        <div class="mc-creds-hidden">Login credentials hidden</div>
+        <div class="mc-creds-shown" hidden>
+          <div><span>Login</span> N/A</div>
+        </div>
       </div>
       <p class="mc-desc">White-label storefronts for print brokers. They sell under their brand — you handle production.</p>
       <ul class="mc-list">
@@ -827,10 +891,10 @@
         <li>Automated Quoting</li>
         <li>Broker Dashboard</li>
       </ul>
-    </a>
+    </div>
 
     <!-- 06 SupplyHUB -->
-    <a class="mc mc-supply" href="https://supply-hub-omega.vercel.app/login" target="_blank" rel="noopener noreferrer">
+    <div class="mc mc-supply" data-href="https://supply-hub-omega.vercel.app/login" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="supply-hub.jpg" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=85'" alt="Supply stock and inventory management" />
         <div class="mc-photo-overlay"></div>
@@ -845,7 +909,20 @@
       <div class="mc-num" style="color:var(--cyan);">06</div>
       <div class="mc-title-row">
         <h3 class="mc-title">SupplyHUB</h3>
-        <span class="mc-poc" title="POC readiness">.09</span>
+        <div class="mc-title-actions">
+          <button type="button" class="mc-eye" aria-label="Show login credentials" aria-expanded="false" onclick="toggleCreds(event, this)">
+            <svg class="eye-open" viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+            <svg class="eye-off" viewBox="0 0 24 24" fill="none" width="16" height="16" hidden><path d="M3 3l18 18M10.6 10.6A3 3 0 0012 15a3 3 0 002.4-4.8M9.9 5.2A11 11 0 0112 5c6.5 0 10 7 10 7a18 18 0 01-4.2 4.6M6.1 6.1A18 18 0 002 12s3.5 7 10 7c1.1 0 2.1-.2 3-.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+          <span class="mc-poc" title="POC readiness">.09</span>
+        </div>
+      </div>
+      <div class="mc-creds">
+        <div class="mc-creds-hidden">Login credentials hidden</div>
+        <div class="mc-creds-shown" hidden>
+          <div><span>Email</span> zargaryandavid@bazaarprinting.com</div>
+          <div><span>Password</span> No password needed</div>
+        </div>
       </div>
       <p class="mc-desc">Continuous automated supply stream. Track stock levels, consumption, and reorder points — zero manual effort.</p>
       <ul class="mc-list">
@@ -854,10 +931,10 @@
         <li>Auto Reorder Triggers</li>
         <li>Supply Cost Reports</li>
       </ul>
-    </a>
+    </div>
 
     <!-- 07 VendorHUB -->
-    <a class="mc mc-supply" href="https://vendors-azure.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <div class="mc mc-supply" data-href="https://vendors-azure.vercel.app/" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="vendor-hub.jpg" onerror="this.src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=85'" alt="Vendor network and procurement management" />
         <div class="mc-photo-overlay"></div>
@@ -873,7 +950,20 @@
       <div class="mc-num" style="color:var(--cyan);">07</div>
       <div class="mc-title-row">
         <h3 class="mc-title">VendorHUB</h3>
-        <span class="mc-poc" title="POC readiness">.08</span>
+        <div class="mc-title-actions">
+          <button type="button" class="mc-eye" aria-label="Show login credentials" aria-expanded="false" onclick="toggleCreds(event, this)">
+            <svg class="eye-open" viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+            <svg class="eye-off" viewBox="0 0 24 24" fill="none" width="16" height="16" hidden><path d="M3 3l18 18M10.6 10.6A3 3 0 0012 15a3 3 0 002.4-4.8M9.9 5.2A11 11 0 0112 5c6.5 0 10 7 10 7a18 18 0 01-4.2 4.6M6.1 6.1A18 18 0 002 12s3.5 7 10 7c1.1 0 2.1-.2 3-.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+          <span class="mc-poc" title="POC readiness">.08</span>
+        </div>
+      </div>
+      <div class="mc-creds">
+        <div class="mc-creds-hidden">Login credentials hidden</div>
+        <div class="mc-creds-shown" hidden>
+          <div><span>Email</span> zargaryandavid@gmail.com</div>
+          <div><span>Password</span> 111111</div>
+        </div>
       </div>
       <p class="mc-desc">Manage your entire vendor network in one place. Send RFQs, compare prices, and approve orders — fast and fully automated.</p>
       <ul class="mc-list">
@@ -882,10 +972,10 @@
         <li>Product Claims Automation</li>
         <li>Spend Analytics</li>
       </ul>
-    </a>
+    </div>
 
     <!-- 08 WhiteLabel Website -->
-    <a class="mc mc-highlight" href="https://www.pixelpressprint.com/" target="_blank" rel="noopener noreferrer">
+    <div class="mc mc-highlight" data-href="https://www.pixelpressprint.com/" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="whitelabel-website.jpg" onerror="this.src='https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=85'" alt="White-label print shop website" />
         <div class="mc-photo-overlay"></div>
@@ -900,7 +990,19 @@
       <div class="mc-num" style="color:var(--cyan);">08</div>
       <div class="mc-title-row">
         <h3 class="mc-title">WhiteLabel Website</h3>
-        <span class="mc-poc" title="POC readiness">.1</span>
+        <div class="mc-title-actions">
+          <button type="button" class="mc-eye" aria-label="Show login credentials" aria-expanded="false" onclick="toggleCreds(event, this)">
+            <svg class="eye-open" viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+            <svg class="eye-off" viewBox="0 0 24 24" fill="none" width="16" height="16" hidden><path d="M3 3l18 18M10.6 10.6A3 3 0 0012 15a3 3 0 002.4-4.8M9.9 5.2A11 11 0 0112 5c6.5 0 10 7 10 7a18 18 0 01-4.2 4.6M6.1 6.1A18 18 0 002 12s3.5 7 10 7c1.1 0 2.1-.2 3-.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+          <span class="mc-poc" title="POC readiness">.1</span>
+        </div>
+      </div>
+      <div class="mc-creds">
+        <div class="mc-creds-hidden">Login credentials hidden</div>
+        <div class="mc-creds-shown" hidden>
+          <div><span>Login</span> N/A</div>
+        </div>
       </div>
       <p class="mc-desc">Your print shop's own branded online storefront. Customers order, get instant quotes, and track jobs — all under your brand, powered by Pulse.</p>
       <ul class="mc-list">
@@ -909,7 +1011,7 @@
         <li>Online Order Management</li>
         <li>Customer Job Tracking</li>
       </ul>
-    </a>
+    </div>
 
   </div>
 </section>
@@ -968,10 +1070,32 @@
     box-shadow: 0 4px 16px rgba(79,110,247,0.45);
   }
   .mc-title-row {
-    display: flex; align-items: baseline; justify-content: space-between;
-    gap: 0.5rem; margin-bottom: 0.6rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 0.5rem; margin-bottom: 0.45rem;
   }
   .mc-title { font-size: 1rem; font-weight: 800; letter-spacing: -0.01em; margin: 0; }
+  .mc-title-actions {
+    display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0;
+  }
+  .mc-eye {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; padding: 0;
+    border-radius: 7px; cursor: pointer;
+    color: var(--blue-light);
+    background: rgba(79,110,247,0.12);
+    border: 1px solid rgba(79,110,247,0.28);
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+  }
+  .mc-eye:hover {
+    color: var(--cyan);
+    background: rgba(34,211,238,0.12);
+    border-color: rgba(34,211,238,0.35);
+  }
+  .mc-eye.is-open {
+    color: var(--cyan);
+    background: rgba(34,211,238,0.15);
+    border-color: rgba(34,211,238,0.4);
+  }
   .mc-poc {
     flex-shrink: 0;
     font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em;
@@ -981,6 +1105,31 @@
     border-radius: 6px;
     padding: 0.15rem 0.45rem;
     line-height: 1.2;
+  }
+  .mc-creds {
+    margin-bottom: 0.75rem;
+    padding: 0.55rem 0.65rem;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.68rem;
+    line-height: 1.45;
+  }
+  .mc-creds-hidden {
+    color: var(--muted);
+    font-style: italic;
+  }
+  .mc-creds-shown {
+    display: flex; flex-direction: column; gap: 0.25rem;
+    color: var(--text);
+    word-break: break-all;
+  }
+  .mc-creds-shown span {
+    display: inline-block;
+    min-width: 4.2rem;
+    color: var(--muted);
+    font-weight: 600;
+    margin-right: 0.35rem;
   }
   .mc-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; flex: 1; }
   .mc-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
@@ -1454,6 +1603,29 @@
     });
   }, { threshold: 0.1 });
   fadeEls.forEach(el => observer.observe(el));
+
+  function openModule(e, card) {
+    if (e.target.closest('.mc-eye, .mc-creds')) return;
+    const href = card.getAttribute('data-href');
+    if (href) window.open(href, '_blank', 'noopener,noreferrer');
+  }
+
+  function toggleCreds(e, btn) {
+    e.preventDefault();
+    e.stopPropagation();
+    const card = btn.closest('.mc');
+    const hidden = card.querySelector('.mc-creds-hidden');
+    const shown = card.querySelector('.mc-creds-shown');
+    const openEye = btn.querySelector('.eye-open');
+    const offEye = btn.querySelector('.eye-off');
+    const isOpen = btn.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    btn.setAttribute('aria-label', isOpen ? 'Hide login credentials' : 'Show login credentials');
+    if (hidden) hidden.hidden = isOpen;
+    if (shown) shown.hidden = !isOpen;
+    if (openEye) openEye.hidden = isOpen;
+    if (offEye) offEye.hidden = !isOpen;
+  }
 
   // Form submit handler
   function handleSubmit(e) {
