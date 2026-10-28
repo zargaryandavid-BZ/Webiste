@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pulse — Print House Automation &amp; Management Platform</title>
-  <meta name="description" content="Pulse is the all-in-one management platform built exclusively for printing houses. CRM, job tickets, designer management, HR, and white-label broker websites — one platform, zero chaos." />
+  <title>Pulse PHMP — Print House Management Platform</title>
+  <meta name="description" content="Pulse PHMP is the AI-powered, all-in-one management platform built exclusively for printing houses. CRM, job tickets, designer management, HR, and white-label broker websites — one platform, zero chaos." />
   <meta name="keywords" content="print shop management software, printing house automation, print CRM, job ticket software, print production management, print broker website, print shop workflow, printing business software" />
-  <meta property="og:title" content="Pulse — Print House Automation &amp; Management Platform" />
+  <meta property="og:title" content="Pulse PHMP — Print House Management Platform" />
   <meta property="og:description" content="The all-in-one platform built for printing houses. Run every job, own every deadline." />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f6ef7'/%3E%3Cpath d='M4 16h5l3-8 5 16 3-10 2 6h6' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
@@ -517,6 +517,121 @@
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
+    /* ── MOTION ── */
+    .scroll-progress {
+      position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      transform: scaleX(0); transform-origin: left;
+      box-shadow: 0 0 12px rgba(34,211,238,0.6);
+    }
+    .gradient-text {
+      background-image: linear-gradient(110deg, var(--blue-light) 0%, var(--cyan) 35%, #a5f3fc 50%, var(--cyan) 65%, var(--blue-light) 100%);
+      background-size: 220% auto;
+      animation: shimmer 6s linear infinite;
+    }
+    @keyframes shimmer { to { background-position: -220% center; } }
+    .hero-glow { animation: drift 14s ease-in-out infinite alternate; }
+    .hero-grid { animation: grid-pan 30s linear infinite; }
+    @keyframes drift {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-60px, 40px) scale(1.12); }
+    }
+    @keyframes grid-pan { to { background-position: 60px 60px; } }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+    .hero-visual.visible .dash-card { animation: float 6s ease-in-out infinite; }
+    .hero-visual.visible .dash-card:nth-child(2) { animation-delay: -1.5s; }
+    .hero-visual.visible .dash-card:nth-child(3) { animation-delay: -3s; }
+    .hero-visual.visible .dash-card:nth-child(4) { animation-delay: -4.5s; }
+    .prog-bar {
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 1.4s cubic-bezier(.4,0,.2,1) 0.5s, width 0.8s ease;
+    }
+    .hero-visual.visible .prog-bar { transform: scaleX(1); }
+
+    .ai-card { border-color: rgba(34,211,238,0.35); }
+    .ai-label { display: inline-flex; align-items: center; gap: 5px; color: var(--cyan); }
+    .ai-typing { font-size: 0.7rem; line-height: 1.45; color: var(--text); min-height: 2.9em; }
+    .ai-typing::after {
+      content: ''; display: inline-block; width: 6px; height: 0.9em; margin-left: 2px;
+      background: var(--cyan); vertical-align: -1px; animation: blink 1s steps(1) infinite;
+    }
+
+    /* Brand name: PHMP expands to Print House Management Platform */
+    .nav-phmp {
+      font-size: 0.72em; font-weight: 800; letter-spacing: 0.06em;
+      padding: 0.15em 0.45em; border-radius: 6px; margin-left: -2px;
+      color: var(--cyan); background: rgba(34,211,238,0.1);
+      border: 1px solid rgba(34,211,238,0.28);
+    }
+    .phmp-name {
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.45em;
+      font-size: 1.35rem; font-weight: 800; letter-spacing: -0.01em;
+      margin-bottom: 1rem; min-height: 1.6em;
+    }
+    .phmp-pulse { color: var(--text); }
+    .phmp { display: inline-flex; flex-wrap: wrap; align-items: baseline; }
+    .phmp-word { display: inline-flex; align-items: baseline; transition: margin 0.6s ease; }
+    .phmp-word b {
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--blue-light), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .phmp-word span {
+      display: inline-block; overflow: hidden; white-space: nowrap;
+      max-width: 0; opacity: 0; color: var(--text); font-weight: 600;
+      transition: max-width 0.7s cubic-bezier(.4,0,.2,1), opacity 0.5s ease;
+    }
+    .phmp.expanded .phmp-word + .phmp-word { margin-left: 0.3em; }
+    .phmp.expanded .phmp-word span { max-width: 6em; opacity: 1; }
+    .phmp-word:nth-child(2) span { transition-delay: 0.12s; }
+    .phmp-word:nth-child(3) span { transition-delay: 0.24s; }
+    .phmp-word:nth-child(4) span { transition-delay: 0.36s; }
+    .phmp:not(.expanded) .phmp-word span { transition-delay: 0s; }
+    .nav-phmp .phmp-word span { color: var(--text); letter-spacing: 0; }
+    .nav-phmp { transition: padding 0.6s ease; }
+
+    /* Centre the nav links so they don't shift while the logo name grows */
+    @media (min-width: 901px) {
+      .nav-links { position: absolute; left: 50%; transform: translateX(-50%); }
+    }
+    /* JS adds .nav-name-fits when the header has room for the full name.
+       Without room the header stays "PHMP" and the hero line animates instead. */
+    html:not(.nav-name-fits) .nav-phmp .phmp-word span { max-width: 0; opacity: 0; }
+    html:not(.nav-name-fits) .nav-phmp .phmp-word + .phmp-word { margin-left: 0; }
+    html.nav-name-fits .phmp-name { display: none; }
+    @media (max-width: 900px) {
+      .phmp-name { justify-content: center; align-content: flex-start; font-size: 1.15rem; min-height: 3em; }
+      .phmp { justify-content: center; }
+    }
+
+    /* Primary button shine */
+    .btn-primary, .btn-submit { position: relative; overflow: hidden; }
+    .btn-primary::after, .btn-submit::after {
+      content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
+      transform: skewX(-20deg); transition: left 0.7s ease;
+    }
+    .btn-primary:hover::after, .btn-submit:hover::after { left: 130%; }
+
+    /* Cursor spotlight on cards */
+    .spotlight { position: relative; }
+    .spotlight::after {
+      content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+      background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(79,110,247,0.14), transparent 60%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .spotlight:hover::after { opacity: 1; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .fade-up, .ai-feed-item { opacity: 1 !important; transform: none !important; }
+      .prog-bar { transform: none; }
+      .ai-line { stroke-dashoffset: 0; }
+      .ai-area, .ai-end-dot { opacity: 1; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .nav-links { display: none; }
@@ -531,6 +646,7 @@
       .cta-box { padding: 2rem 1.5rem; }
       .process-steps { grid-template-columns: 1fr; }
       footer { flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; gap: 0.75rem 1.5rem; }
     }
   </style>
 </head>
@@ -538,19 +654,26 @@
 
 <!-- ── NAVIGATION ── -->
 <nav>
-  <a href="#home" class="nav-logo">
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <a href="#home" class="nav-logo" aria-label="Pulse PHMP — Print House Management Platform">
     <div class="pulse-icon">
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M2 10h3l2-6 4 12 2-8 1.5 4H18" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
     Pulse
+    <span class="nav-phmp phmp" aria-hidden="true">
+      <span class="phmp-word"><b>P</b><span>rint</span></span>
+      <span class="phmp-word"><b>H</b><span>ouse</span></span>
+      <span class="phmp-word"><b>M</b><span>anagement</span></span>
+      <span class="phmp-word"><b>P</b><span>latform</span></span>
+    </span>
   </a>
   <ul class="nav-links">
+    <li><a href="#modules">Platform</a></li>
+    <li><a href="#ai">Pulse AI</a></li>
     <li><a href="#problem">The Problem</a></li>
-    <li><a href="#products">Platform</a></li>
-    <li><a href="#why">Why Pulse</a></li>
-    <li><a href="#process">How It Works</a></li>
+    <li><a href="#transformation">Before &amp; After</a></li>
   </ul>
   <a href="#contact" class="btn btn-primary">Request a Demo</a>
 </nav>
@@ -580,15 +703,15 @@
         </div>
         <div class="dash-stat-row">
           <div class="dash-stat blue">
-            <div class="val">24</div>
+            <div class="val count" data-to="24">24</div>
             <div class="key">Active Jobs</div>
           </div>
           <div class="dash-stat green">
-            <div class="val">11</div>
+            <div class="val count" data-to="11">11</div>
             <div class="key">Completed</div>
           </div>
           <div class="dash-stat cyan">
-            <div class="val">3</div>
+            <div class="val count" data-to="3">3</div>
             <div class="key">Due Today</div>
           </div>
         </div>
@@ -645,14 +768,35 @@
         </div>
       </div>
 
+      <!-- AI insight card -->
+      <div class="dash-card ai-card">
+        <div class="dash-card-top">
+          <span class="dash-label ai-label">
+            <svg viewBox="0 0 16 16" fill="none" width="11" height="11"><path d="M8 1l1.6 4.4L14 7l-4.4 1.6L8 13l-1.6-4.4L2 7l4.4-1.6L8 1z" fill="currentColor"/></svg>
+            Pulse AI
+          </span>
+          <span class="dash-live">Thinking</span>
+        </div>
+        <p class="ai-typing" id="ai-typing">Move Green Co flyers to Press 2 — saves 40 min.</p>
+      </div>
+
       </div><!-- end hero-cards-layer -->
     </div>
 
     <!-- RIGHT: Copy + CTAs -->
     <div class="hero-content">
+      <div class="phmp-name fade-up" aria-label="Pulse PHMP — Print House Management Platform">
+        <span class="phmp-pulse" aria-hidden="true">Pulse</span>
+        <span class="phmp" id="phmp" aria-hidden="true">
+          <span class="phmp-word"><b>P</b><span>rint</span></span>
+          <span class="phmp-word"><b>H</b><span>ouse</span></span>
+          <span class="phmp-word"><b>M</b><span>anagement</span></span>
+          <span class="phmp-word"><b>P</b><span>latform</span></span>
+        </span>
+      </div>
       <div class="hero-badge fade-up">
         <span class="badge-dot"></span>
-        8 Modules · 1 Platform
+        AI-Powered · Data-Driven · 8 Modules
       </div>
       <h1 class="fade-up">
         No Mess in the<br />
@@ -660,26 +804,26 @@
         <span class="gradient-text">Know Your Numbers.</span>
       </h1>
       <p class="hero-sub fade-up">
-        The user-friendly management platform built for small and mid-size print shops. Easy to adopt, easy to run — from first quote to delivered job.
+        AI-powered, data-driven control for small and mid-size print shops. See every job, press and sheet in real time — cut production waste, raise throughput, and run your shop on facts, not guesses.
       </p>
       <div class="hero-ctas fade-up">
         <a href="#contact" class="btn btn-primary btn-primary-lg">Request a Demo</a>
-        <a href="#products" class="btn btn-ghost btn-primary-lg">See the Platform</a>
+        <a href="#modules" class="btn btn-ghost btn-primary-lg">See the Platform</a>
       </div>
       <div class="hero-stats fade-up">
         <div class="hero-stat">
-          <div class="num">8</div>
-          <div class="label">Integrated Modules</div>
+          <div class="num count" data-to="30" data-prefix="−" data-suffix="%">−30%</div>
+          <div class="label">Production Waste</div>
         </div>
         <div class="hero-divider"></div>
         <div class="hero-stat">
-          <div class="num">1</div>
-          <div class="label">Platform for Everything</div>
+          <div class="num count" data-to="25" data-prefix="+" data-suffix="%">+25%</div>
+          <div class="label">Throughput</div>
         </div>
         <div class="hero-divider"></div>
         <div class="hero-stat">
-          <div class="num">SMB</div>
-          <div class="label">Print Shops, Built for You</div>
+          <div class="num count" data-to="100" data-suffix="%">100%</div>
+          <div class="label">Job Visibility</div>
         </div>
       </div>
     </div>
@@ -689,10 +833,10 @@
 
 <!-- ── MODULES ── -->
 <section id="modules" style="background: var(--bg); padding: 4rem 5%;">
-  <div class="modules-grid fade-up">
+  <div class="modules-grid">
 
     <!-- 01 CRM -->
-    <div class="mc" data-href="https://bazar-crm-eta.vercel.app/leads" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
+    <div class="mc fade-up" data-href="https://bazar-crm-eta.vercel.app/leads" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="crm-operator.png" alt="Operator with headset talking to client" />
         <div class="mc-photo-overlay"></div>
@@ -732,7 +876,7 @@
     </div>
 
     <!-- 02 Workflow -->
-    <div class="mc" data-href="https://workflow-rho-one.vercel.app/settings/integrations" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
+    <div class="mc fade-up" data-href="https://workflow-rho-one.vercel.app/settings/integrations" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="design-manager.jpg" onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=85'" alt="Workflow - color swatches and artwork" />
         <div class="mc-photo-overlay"></div>
@@ -772,7 +916,7 @@
     </div>
 
     <!-- 03 Production -->
-    <div class="mc" data-href="https://pulse-jade-five.vercel.app/pages/dashboard.html" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
+    <div class="mc fade-up" data-href="https://pulse-jade-five.vercel.app/pages/dashboard.html" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="operator-printing-press.jpg" alt="Operator working on large format printing press" />
         <div class="mc-photo-overlay"></div>
@@ -813,7 +957,7 @@
     </div>
 
     <!-- 04 Employee Management -->
-    <div class="mc" data-href="https://hr-one-beta.vercel.app/admin/dashboard" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
+    <div class="mc fade-up" data-href="https://hr-one-beta.vercel.app/admin/dashboard" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="hr-team.jpg" onerror="this.src='https://images.unsplash.com/photo-1612831455359-970e23a1e4e9?w=800&q=85'" alt="HR team management" />
         <div class="mc-photo-overlay"></div>
@@ -854,7 +998,7 @@
     </div>
 
     <!-- 05 Broker Websites -->
-    <div class="mc mc-highlight" data-href="https://www.bazaarprinting.com" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
+    <div class="mc fade-up mc-highlight" data-href="https://www.bazaarprinting.com" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="broker-storefront.jpg" alt="Broker printing website storefront" />
         <div class="mc-photo-overlay"></div>
@@ -894,7 +1038,7 @@
     </div>
 
     <!-- 06 SupplyHUB -->
-    <div class="mc mc-supply" data-href="https://supply-hub-omega.vercel.app/login" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
+    <div class="mc fade-up mc-supply" data-href="https://supply-hub-omega.vercel.app/login" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="supply-hub.jpg" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=85'" alt="Supply stock and inventory management" />
         <div class="mc-photo-overlay"></div>
@@ -934,7 +1078,7 @@
     </div>
 
     <!-- 07 VendorHUB -->
-    <div class="mc mc-supply" data-href="https://vendors-azure.vercel.app/" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
+    <div class="mc fade-up mc-supply" data-href="https://vendors-azure.vercel.app/" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="vendor-hub.jpg" onerror="this.src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=85'" alt="Vendor network and procurement management" />
         <div class="mc-photo-overlay"></div>
@@ -975,7 +1119,7 @@
     </div>
 
     <!-- 08 WhiteLabel Website -->
-    <div class="mc mc-highlight" data-href="https://www.pixelpressprint.com/" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
+    <div class="mc fade-up mc-highlight" data-href="https://www.pixelpressprint.com/" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
         <img src="whitelabel-website.jpg" onerror="this.src='https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=85'" alt="White-label print shop website" />
         <div class="mc-photo-overlay"></div>
@@ -1030,6 +1174,7 @@
     transition: border-color 0.25s, transform 0.25s;
     text-decoration: none; color: inherit; cursor: pointer;
   }
+  .mc.fade-up { transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.25s; }
   .mc::before {
     content:''; position:absolute; top:0; left:0; right:0; height:2px;
     background: linear-gradient(90deg, var(--blue), var(--cyan));
@@ -1156,6 +1301,207 @@
   }
 </style>
 
+<!-- ── PULSE AI ── -->
+<section id="ai" style="background: var(--bg2); padding: 6rem 5%; position: relative; overflow: hidden;">
+  <div class="ai-glow"></div>
+  <div style="max-width:1200px; margin:0 auto 3rem; position:relative;">
+    <span class="section-label">Pulse AI · Data-Driven</span>
+    <h2>Know your numbers.<br /><span class="gradient-text">Control your print shop.</span></h2>
+    <p class="section-sub">Pulse AI watches every job, press and sheet in real time — and tells you exactly where you're losing time, paper and money.</p>
+  </div>
+
+  <div class="ai-layout">
+
+    <!-- LEFT: KPI tiles -->
+    <div class="ai-kpis">
+      <div class="ai-kpi fade-up">
+        <div class="ai-kpi-val green count" data-to="30" data-prefix="−" data-suffix="%">−30%</div>
+        <div class="ai-kpi-key">Production waste</div>
+        <p>AI flags misprints, overruns and make-ready loss before they hit the bin.</p>
+      </div>
+      <div class="ai-kpi fade-up">
+        <div class="ai-kpi-val cyan count" data-to="25" data-prefix="+" data-suffix="%">+25%</div>
+        <div class="ai-kpi-key">Throughput</div>
+        <p>Smart scheduling keeps every press busy and every job moving.</p>
+      </div>
+      <div class="ai-kpi fade-up">
+        <div class="ai-kpi-val blue count" data-to="98" data-suffix="%">98%</div>
+        <div class="ai-kpi-key">On-time delivery</div>
+        <p>Deadline risk is predicted hours ahead — not discovered too late.</p>
+      </div>
+      <div class="ai-kpi fade-up">
+        <div class="ai-kpi-val amber count" data-to="2" data-suffix=" min">2 min</div>
+        <div class="ai-kpi-key">To send a quote</div>
+        <p>Pricing built from your real costs, history and machine time.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Live chart + AI feed -->
+    <div class="ai-panel fade-up">
+      <div class="ai-panel-top">
+        <span class="dash-label">Throughput vs. Waste · 12 weeks</span>
+        <span class="dash-live">Live</span>
+      </div>
+      <div class="ai-legend">
+        <span><i style="background:var(--cyan)"></i>Throughput</span>
+        <span><i style="background:#f87171"></i>Waste</span>
+      </div>
+      <svg class="ai-chart" viewBox="0 0 400 170" aria-label="Chart: throughput rising and waste falling over 12 weeks">
+        <defs>
+          <linearGradient id="ai-area" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g class="ai-gridlines">
+          <line x1="0" y1="40" x2="400" y2="40"/><line x1="0" y1="85" x2="400" y2="85"/><line x1="0" y1="130" x2="400" y2="130"/>
+        </g>
+        <path class="ai-area" d="M0,140 L36,132 L73,128 L109,118 L145,112 L182,100 L218,94 L255,80 L291,72 L327,60 L364,50 L400,38 L400,170 L0,170 Z" fill="url(#ai-area)"/>
+        <polyline class="ai-line" pathLength="1" stroke="#22d3ee" points="0,140 36,132 73,128 109,118 145,112 182,100 218,94 255,80 291,72 327,60 364,50 400,38"/>
+        <polyline class="ai-line ai-line-waste" pathLength="1" stroke="#f87171" points="0,58 36,64 73,70 109,76 145,86 182,94 218,104 255,110 291,120 327,126 364,134 400,140"/>
+        <circle class="ai-end-dot" cx="396" cy="39" r="4" fill="#22d3ee"/>
+        <circle class="ai-end-dot" cx="396" cy="139" r="4" fill="#f87171"/>
+      </svg>
+
+      <div class="ai-feed">
+        <div class="ai-feed-item">
+          <span class="ai-feed-icon">✦</span>
+          <div><strong>Gang 3 card jobs on one sheet</strong><span>Saves 18% paper stock today</span></div>
+          <span class="ai-feed-tag">−18% waste</span>
+        </div>
+        <div class="ai-feed-item">
+          <span class="ai-feed-icon">✦</span>
+          <div><strong>Move Green Co flyers to Press 2</strong><span>Press 1 is 91% loaded until 3 PM</span></div>
+          <span class="ai-feed-tag">+40 min</span>
+        </div>
+        <div class="ai-feed-item">
+          <span class="ai-feed-icon">✦</span>
+          <div><strong>Metro Realty likely to reorder</strong><span>Same order every 6 weeks — send a quote now</span></div>
+          <span class="ai-feed-tag">+$1.2k</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AI capabilities -->
+  <div class="ai-features">
+    <div class="ai-feature fade-up">
+      <div class="ai-feature-icon">⚡</div>
+      <h3>Predictive Scheduling</h3>
+      <p>AI balances every press and operator so jobs finish faster with less idle time.</p>
+    </div>
+    <div class="ai-feature fade-up">
+      <div class="ai-feature-icon">♻</div>
+      <h3>Waste Detection</h3>
+      <p>Spot spoilage, reprints and overruns by job, machine and shift — then fix the cause.</p>
+    </div>
+    <div class="ai-feature fade-up">
+      <div class="ai-feature-icon">$</div>
+      <h3>Smart Quoting</h3>
+      <p>Margins you can trust, priced from your real paper, ink and machine costs.</p>
+    </div>
+    <div class="ai-feature fade-up">
+      <div class="ai-feature-icon">◔</div>
+      <h3>Live Shop Numbers</h3>
+      <p>One dashboard for jobs, capacity, revenue and team — always up to the minute.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ai-glow {
+    position: absolute; top: 10%; left: -10%; width: 700px; height: 700px;
+    background: radial-gradient(ellipse, rgba(34,211,238,0.10) 0%, transparent 65%);
+    pointer-events: none; animation: drift 18s ease-in-out infinite alternate;
+  }
+  .ai-layout {
+    display: grid; grid-template-columns: 1fr 1.15fr; gap: 1.5rem;
+    max-width: 1200px; margin: 0 auto; position: relative;
+  }
+  .ai-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .ai-kpi {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.4rem;
+  }
+  .ai-kpi-val { font-size: 2.2rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+  .ai-kpi-val.green { color: #4ade80; }
+  .ai-kpi-val.cyan { color: var(--cyan); }
+  .ai-kpi-val.blue { color: var(--blue-light); }
+  .ai-kpi-val.amber { color: #fbbf24; }
+  .ai-kpi-key { font-size: 0.85rem; font-weight: 700; margin: 0.5rem 0 0.35rem; }
+  .ai-kpi p { font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
+
+  .ai-panel {
+    background: var(--bg3); border: 1px solid rgba(34,211,238,0.2);
+    border-radius: 16px; padding: 1.4rem;
+    display: flex; flex-direction: column; gap: 0.9rem;
+  }
+  .ai-panel-top { display: flex; align-items: center; justify-content: space-between; }
+  .ai-legend { display: flex; gap: 1rem; font-size: 0.72rem; color: var(--muted); }
+  .ai-legend i { display: inline-block; width: 10px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+  .ai-chart { width: 100%; height: auto; display: block; overflow: visible; }
+  .ai-gridlines line { stroke: rgba(255,255,255,0.06); stroke-dasharray: 4 6; }
+  .ai-line {
+    fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+    transition: stroke-dashoffset 2s cubic-bezier(.4,0,.2,1) 0.3s;
+  }
+  .ai-line-waste { transition-delay: 0.6s; }
+  .ai-area { opacity: 0; transition: opacity 1.2s ease 1.4s; }
+  .ai-end-dot { opacity: 0; transition: opacity 0.4s ease 2.2s; }
+  .ai-panel.visible .ai-line { stroke-dashoffset: 0; }
+  .ai-panel.visible .ai-area { opacity: 1; }
+  .ai-panel.visible .ai-end-dot { opacity: 1; animation: blink 2s ease-in-out 2.6s infinite; }
+
+  .ai-feed { display: flex; flex-direction: column; gap: 0.5rem; }
+  .ai-feed-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.65rem 0.85rem; border-radius: 10px;
+    background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.14);
+    opacity: 0; transform: translateX(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .ai-panel.visible .ai-feed-item { opacity: 1; transform: none; }
+  .ai-panel.visible .ai-feed-item:nth-child(1) { transition-delay: 1.6s; }
+  .ai-panel.visible .ai-feed-item:nth-child(2) { transition-delay: 1.9s; }
+  .ai-panel.visible .ai-feed-item:nth-child(3) { transition-delay: 2.2s; }
+  .ai-feed-icon { color: var(--cyan); font-size: 0.9rem; flex-shrink: 0; }
+  .ai-feed-item div { flex: 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  .ai-feed-item strong { font-size: 0.8rem; font-weight: 700; }
+  .ai-feed-item div span { font-size: 0.72rem; color: var(--muted); }
+  .ai-feed-tag {
+    font-size: 0.66rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 5px;
+    background: rgba(74,222,128,0.12); color: #4ade80; white-space: nowrap;
+  }
+
+  .ai-features {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+    max-width: 1200px; margin: 1.5rem auto 0; position: relative;
+  }
+  .ai-feature {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.4rem;
+  }
+  .ai-feature-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, rgba(79,110,247,0.25), rgba(34,211,238,0.18));
+    border: 1px solid rgba(34,211,238,0.25);
+    color: var(--cyan); font-weight: 800; margin-bottom: 0.9rem;
+  }
+  .ai-feature h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .ai-feature p { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+  @media (max-width: 1000px) {
+    .ai-layout { grid-template-columns: 1fr; }
+    .ai-features { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .ai-kpis, .ai-features { grid-template-columns: 1fr; }
+  }
+</style>
+
 <!-- ── PROBLEM + FORM ── -->
 <section id="problem" style="background: var(--bg2); padding: 6rem 5%;">
 
@@ -1205,38 +1551,42 @@
     </div>
 
     <!-- RIGHT: Form -->
-    <div class="pf-right fade-up">
+    <div class="pf-right fade-up" id="contact" style="scroll-margin-top: 90px;">
       <div class="pf-form-box">
         <span class="section-label" style="display:block; margin-bottom:0.5rem;">Get Started</span>
         <h2 style="font-size:1.75rem; margin-bottom:0.5rem;">See Pulse in action.</h2>
         <p style="color:var(--muted); font-size:0.88rem; margin-bottom:1.5rem;">Tell us about your print shop and we'll show you exactly how Pulse transforms your workflow — live, in 30 minutes.</p>
         <form class="demo-form" onsubmit="handleSubmit(event)">
           <div class="form-row">
-            <input class="form-input" type="text" placeholder="Your name" required />
-            <input class="form-input" type="email" placeholder="Work email" required />
+            <input class="form-input" type="text" name="name" placeholder="Your name" required />
+            <input class="form-input" type="email" name="email" placeholder="Work email" required />
           </div>
           <div class="form-row">
-            <input class="form-input" type="text" placeholder="Print shop name" required />
-            <input class="form-input" type="tel" placeholder="Phone number" />
+            <input class="form-input" type="text" name="shop" placeholder="Print shop name" required />
+            <input class="form-input" type="tel" name="phone" placeholder="Phone number" required />
           </div>
-          <select class="form-select">
+          <select class="form-select" name="employees" required>
             <option value="" disabled selected>How many employees?</option>
             <option>1–5 employees</option>
             <option>6–20 employees</option>
             <option>21–50 employees</option>
             <option>50+ employees</option>
           </select>
-          <select class="form-select">
+          <select class="form-select" name="module" required>
             <option value="" disabled selected>Which module interests you most?</option>
             <option>Pulse CRM</option>
             <option>Workflow</option>
             <option>Pulse Production</option>
             <option>Pulse HR</option>
             <option>Broker Websites</option>
+            <option>SupplyHUB</option>
+            <option>VendorHUB</option>
+            <option>WhiteLabel Website</option>
             <option>The full platform</option>
           </select>
           <button type="submit" class="btn-submit">Request My Free Demo →</button>
           <p class="form-note">No commitment. We respond within one business day.</p>
+          <p id="form-error" class="form-note" style="display:none; color:#f87171;"></p>
         </form>
         <div id="form-success" style="display:none; padding:1.25rem; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.25); border-radius:12px; color:var(--cyan); font-weight:600; margin-top:1rem; text-align:center;">
           ✓ Request received! We'll be in touch within one business day.
@@ -1373,19 +1723,19 @@
       <!-- Live metrics bar -->
       <div class="ba-metrics">
         <div class="ba-metric">
-          <span class="ba-metric-val" style="color:#4ade80;">98%</span>
+          <span class="ba-metric-val count" data-to="98" data-suffix="%" style="color:#4ade80;">98%</span>
           <span class="ba-metric-key">On-Time Rate</span>
         </div>
         <div class="ba-metric">
-          <span class="ba-metric-val" style="color:var(--blue-light);">31</span>
+          <span class="ba-metric-val count" data-to="31" style="color:var(--blue-light);">31</span>
           <span class="ba-metric-key">Active Jobs</span>
         </div>
         <div class="ba-metric">
-          <span class="ba-metric-val" style="color:var(--cyan);">4.2h</span>
+          <span class="ba-metric-val count" data-to="4.2" data-decimals="1" data-suffix="h" style="color:var(--cyan);">4.2h</span>
           <span class="ba-metric-key">Avg Turnaround</span>
         </div>
         <div class="ba-metric">
-          <span class="ba-metric-val" style="color:#fbbf24;">$0</span>
+          <span class="ba-metric-val" style="color:#fbbf24;">0</span>
           <span class="ba-metric-key">Missed Deadlines</span>
         </div>
       </div>
@@ -1442,7 +1792,7 @@
   </div>
 
   <div style="text-align:center; margin-top:3.5rem;">
-    <a href="#problem" class="btn btn-primary btn-primary-lg">See How We Do It →</a>
+    <a href="#modules" class="btn btn-primary btn-primary-lg">See How We Do It →</a>
   </div>
 </section>
 
@@ -1577,17 +1927,18 @@
       </svg>
     </div>
     <div>
-      <div class="name">Pulse</div>
-      <div class="tagline">Print House Automation Management Platform</div>
+      <div class="name">Pulse <span class="nav-phmp">PHMP</span></div>
+      <div class="tagline">Print House Management Platform</div>
     </div>
   </div>
   <ul class="footer-links">
-    <li><a href="#products">Platform</a></li>
-    <li><a href="#why">Why Pulse</a></li>
-    <li><a href="#process">How It Works</a></li>
+    <li><a href="#modules">Platform</a></li>
+    <li><a href="#ai">Pulse AI</a></li>
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#transformation">Before &amp; After</a></li>
     <li><a href="#contact">Request Demo</a></li>
   </ul>
-  <div class="footer-copy">© 2026 Pulse. All rights reserved.</div>
+  <div class="footer-copy">© 2026 Pulse PHMP. All rights reserved.</div>
 </footer>
 
 <script>
@@ -1602,6 +1953,136 @@
     });
   }, { threshold: 0.1 });
   fadeEls.forEach(el => observer.observe(el));
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Count-up numbers when they scroll into view
+  function formatCount(el, value) {
+    const decimals = +(el.dataset.decimals || 0);
+    return (el.dataset.prefix || '') + value.toFixed(decimals) + (el.dataset.suffix || '');
+  }
+  function runCount(el) {
+    const to = parseFloat(el.dataset.to);
+    const duration = 1600;
+    const start = performance.now();
+    const tick = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = formatCount(el, to * eased);
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  if (!reduceMotion) {
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          runCount(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('.count').forEach(el => {
+      el.textContent = formatCount(el, 0);
+      countObserver.observe(el);
+    });
+  }
+
+  // Scroll progress bar under the nav
+  const progressBar = document.getElementById('scroll-progress');
+  function updateProgress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // Cursor spotlight on cards
+  document.querySelectorAll('.mc, .pf-card, .ai-kpi, .ai-feature').forEach(card => {
+    card.classList.add('spotlight');
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      card.style.setProperty('--my', `${e.clientY - r.top}px`);
+    });
+  });
+
+  // Pulse AI insight card: types out a rotating set of suggestions
+  const aiMessages = [
+    'Move Green Co flyers to Press 2 — saves 40 min.',
+    'Paper waste on Press 1 up 6%. Check registration.',
+    'Gang 3 card jobs on one sheet — 18% less stock.',
+    'Metro Realty likely to reorder this week. Send a quote.',
+    'Throughput up 12% vs. last week. Press 3 is the bottleneck.',
+  ];
+  const aiTyping = document.getElementById('ai-typing');
+  if (aiTyping && !reduceMotion) {
+    let msg = 0;
+    const typeMessage = () => {
+      const text = aiMessages[msg];
+      let i = 0;
+      const step = () => {
+        aiTyping.textContent = text.slice(0, ++i);
+        if (i < text.length) setTimeout(step, 28);
+        else setTimeout(() => { msg = (msg + 1) % aiMessages.length; typeMessage(); }, 2600);
+      };
+      step();
+    };
+    typeMessage();
+  }
+
+  // Brand name: expand PHMP to the full name, then collapse, on a loop
+  const phmpEls = document.querySelectorAll('.phmp');
+
+  // Only animate the name in the header when the full name fits before the nav links
+  // (or before the button, on narrow screens where the links are hidden).
+  const navEl = document.querySelector('nav');
+  const navLogo = document.querySelector('.nav-logo');
+  const navLinks = document.querySelector('.nav-links');
+  const navCta = navEl.querySelector('.btn-primary');
+  const navWords = [...document.querySelectorAll('.nav-phmp .phmp-word span')];
+  function updateNavNameFit() {
+    const wordGap = 0.3 * parseFloat(getComputedStyle(navWords[0]).fontSize);
+    const shownNow = navWords.reduce((sum, w) => sum + w.getBoundingClientRect().width, 0)
+      + [...document.querySelectorAll('.nav-phmp .phmp-word + .phmp-word')]
+          .reduce((sum, w) => sum + parseFloat(getComputedStyle(w).marginLeft), 0);
+    const fullName = navWords.reduce((sum, w) => sum + w.scrollWidth, 0) + wordGap * 3;
+    const logoRight = navLogo.getBoundingClientRect().right - shownNow + fullName;
+    const limit = navLinks.offsetWidth
+      ? (navEl.clientWidth - navLinks.offsetWidth) / 2
+      : navCta.getBoundingClientRect().left;
+    document.documentElement.classList.toggle('nav-name-fits', logoRight + 32 <= limit);
+  }
+  updateNavNameFit();
+  if (document.fonts) document.fonts.ready.then(updateNavNameFit);
+  window.addEventListener('resize', updateNavNameFit);
+
+  if (reduceMotion) {
+    phmpEls.forEach(el => el.classList.add('expanded'));
+  } else {
+    const cycle = () => {
+      phmpEls.forEach(el => el.classList.add('expanded'));
+      setTimeout(() => phmpEls.forEach(el => el.classList.remove('expanded')), 4200);
+    };
+    setTimeout(cycle, 900);
+    setInterval(cycle, 7000);
+  }
+
+  // Hero dashboard: nudge the progress bars so the panel feels live
+  if (!reduceMotion) {
+    const progItems = [...document.querySelectorAll('.prog-item')].map(item => ({
+      bar: item.querySelector('.prog-bar'),
+      val: item.querySelector('.prog-val'),
+      base: parseInt(item.querySelector('.prog-val').textContent, 10),
+    }));
+    setInterval(() => {
+      progItems.forEach(p => {
+        const v = Math.max(5, Math.min(99, p.base + Math.round((Math.random() - 0.5) * 8)));
+        p.bar.style.width = v + '%';
+        p.val.textContent = v + '%';
+      });
+    }, 3000);
+  }
 
   function openModule(e, card) {
     if (e.target.closest('.mc-eye, .mc-creds')) return;
@@ -1619,10 +2100,31 @@
   }
 
   // Form submit handler
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    e.target.style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
+    const form = e.target;
+    const btn = form.querySelector('.btn-submit');
+    const errorEl = document.getElementById('form-error');
+    errorEl.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('/api/demo-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      form.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } catch (err) {
+      errorEl.textContent = err.message + ' Please try again.';
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Request My Free Demo →';
+    }
   }
 </script>
 </body>
