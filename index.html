@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pulse PHMP — Print House Management Platform</title>
-  <meta name="description" content="Pulse PHMP is the AI-powered, all-in-one management platform built exclusively for printing houses. CRM, job tickets, designer management, HR, and white-label broker websites — one platform, zero chaos." />
+  <title>Pulse Print — AI Print House Management Platform</title>
+  <meta name="description" content="Pulse Print is the AI-powered, all-in-one management platform built exclusively for printing houses. CRM, job tickets, designer management, HR, and white-label broker websites — one platform, zero chaos." />
   <meta name="keywords" content="print shop management software, printing house automation, print CRM, job ticket software, print production management, print broker website, print shop workflow, printing business software" />
-  <meta property="og:title" content="Pulse PHMP — Print House Management Platform" />
+  <meta property="og:title" content="Pulse Print — AI Print House Management Platform" />
   <meta property="og:description" content="The all-in-one platform built for printing houses. Run every job, own every deadline." />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f6ef7'/%3E%3Cpath d='M4 16h5l3-8 5 16 3-10 2 6h6' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
@@ -558,7 +558,7 @@
       background: var(--cyan); vertical-align: -1px; animation: blink 1s steps(1) infinite;
     }
 
-    /* Brand name: PHMP expands to Print House Management Platform */
+    /* Brand tag: "AI" expands to "AI · Print House Management Platform" */
     .nav-phmp {
       font-size: 0.72em; font-weight: 800; letter-spacing: 0.06em;
       padding: 0.15em 0.45em; border-radius: 6px; margin-left: -2px;
@@ -584,23 +584,29 @@
       transition: max-width 0.7s cubic-bezier(.4,0,.2,1), opacity 0.5s ease;
     }
     .phmp.expanded .phmp-word + .phmp-word { margin-left: 0.3em; }
-    .phmp.expanded .phmp-word span { max-width: 6em; opacity: 1; }
+    .phmp.expanded .phmp-word span { max-width: 8em; opacity: 1; }
     .phmp-word:nth-child(2) span { transition-delay: 0.12s; }
     .phmp-word:nth-child(3) span { transition-delay: 0.24s; }
     .phmp-word:nth-child(4) span { transition-delay: 0.36s; }
+    .phmp-word:nth-child(5) span { transition-delay: 0.48s; }
     .phmp:not(.expanded) .phmp-word span { transition-delay: 0s; }
-    .nav-phmp .phmp-word span { color: var(--text); letter-spacing: 0; }
+    .nav-phmp .phmp-word span { color: var(--text); letter-spacing: 0; font-size: 0.86em; font-weight: 700; }
     .nav-phmp { transition: padding 0.6s ease; }
 
     /* Centre the nav links so they don't shift while the logo name grows */
     @media (min-width: 901px) {
-      .nav-links { position: absolute; left: 50%; transform: translateX(-50%); }
+      .nav-links { position: absolute; left: 50%; transform: translateX(-50%); gap: 1.6rem; }
     }
     /* JS adds .nav-name-fits when the header has room for the full name.
-       Without room the header stays "PHMP" and the hero line animates instead. */
+       Without room the header stays "AI" and the hero line animates instead. */
     html:not(.nav-name-fits) .nav-phmp .phmp-word span { max-width: 0; opacity: 0; }
     html:not(.nav-name-fits) .nav-phmp .phmp-word + .phmp-word { margin-left: 0; }
     html.nav-name-fits .phmp-name { display: none; }
+    @media (max-width: 480px) {
+      .nav-logo { font-size: 1.05rem; gap: 8px; }
+      nav .btn-primary { padding: 0.5rem 0.9rem; font-size: 0.82rem; }
+      .phmp-name { font-size: 1rem !important; min-height: 3.3em !important; }
+    }
     @media (max-width: 900px) {
       .phmp-name { justify-content: center; align-content: flex-start; font-size: 1.15rem; min-height: 3em; }
       .phmp { justify-content: center; }
@@ -655,18 +661,19 @@
 <!-- ── NAVIGATION ── -->
 <nav>
   <div class="scroll-progress" id="scroll-progress"></div>
-  <a href="#home" class="nav-logo" aria-label="Pulse PHMP — Print House Management Platform">
+  <a href="#home" class="nav-logo" aria-label="Pulse Print — AI Print House Management Platform">
     <div class="pulse-icon">
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M2 10h3l2-6 4 12 2-8 1.5 4H18" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
-    Pulse
+    Pulse Print
     <span class="nav-phmp phmp" aria-hidden="true">
-      <span class="phmp-word"><b>P</b><span>rint</span></span>
-      <span class="phmp-word"><b>H</b><span>ouse</span></span>
-      <span class="phmp-word"><b>M</b><span>anagement</span></span>
-      <span class="phmp-word"><b>P</b><span>latform</span></span>
+      <span class="phmp-word"><b>AI</b></span>
+      <span class="phmp-word"><span>·&nbsp;Print</span></span>
+      <span class="phmp-word"><span>House</span></span>
+      <span class="phmp-word"><span>Management</span></span>
+      <span class="phmp-word"><span>Platform</span></span>
     </span>
   </a>
   <ul class="nav-links">
@@ -785,13 +792,14 @@
 
     <!-- RIGHT: Copy + CTAs -->
     <div class="hero-content">
-      <div class="phmp-name fade-up" aria-label="Pulse PHMP — Print House Management Platform">
-        <span class="phmp-pulse" aria-hidden="true">Pulse</span>
+      <div class="phmp-name fade-up" aria-label="Pulse Print — AI Print House Management Platform">
+        <span class="phmp-pulse" aria-hidden="true">Pulse Print</span>
         <span class="phmp" id="phmp" aria-hidden="true">
-          <span class="phmp-word"><b>P</b><span>rint</span></span>
-          <span class="phmp-word"><b>H</b><span>ouse</span></span>
-          <span class="phmp-word"><b>M</b><span>anagement</span></span>
-          <span class="phmp-word"><b>P</b><span>latform</span></span>
+          <span class="phmp-word"><b>AI</b></span>
+          <span class="phmp-word"><span>·&nbsp;Print</span></span>
+          <span class="phmp-word"><span>House</span></span>
+          <span class="phmp-word"><span>Management</span></span>
+          <span class="phmp-word"><span>Platform</span></span>
         </span>
       </div>
       <div class="hero-badge fade-up">
@@ -1927,7 +1935,7 @@
       </svg>
     </div>
     <div>
-      <div class="name">Pulse <span class="nav-phmp">PHMP</span></div>
+      <div class="name">Pulse Print <span class="nav-phmp">AI</span></div>
       <div class="tagline">Print House Management Platform</div>
     </div>
   </div>
@@ -1938,7 +1946,7 @@
     <li><a href="#transformation">Before &amp; After</a></li>
     <li><a href="#contact">Request Demo</a></li>
   </ul>
-  <div class="footer-copy">© 2026 Pulse PHMP. All rights reserved.</div>
+  <div class="footer-copy">© 2026 Pulse Print. All rights reserved.</div>
 </footer>
 
 <script>
@@ -2031,7 +2039,7 @@
     typeMessage();
   }
 
-  // Brand name: expand PHMP to the full name, then collapse, on a loop
+  // Brand tag: expand "AI" to the full name, then collapse, on a loop
   const phmpEls = document.querySelectorAll('.phmp');
 
   // Only animate the name in the header when the full name fits before the nav links
@@ -2046,7 +2054,8 @@
     const shownNow = navWords.reduce((sum, w) => sum + w.getBoundingClientRect().width, 0)
       + [...document.querySelectorAll('.nav-phmp .phmp-word + .phmp-word')]
           .reduce((sum, w) => sum + parseFloat(getComputedStyle(w).marginLeft), 0);
-    const fullName = navWords.reduce((sum, w) => sum + w.scrollWidth, 0) + wordGap * 3;
+    const gaps = document.querySelectorAll('.nav-phmp .phmp-word + .phmp-word').length;
+    const fullName = navWords.reduce((sum, w) => sum + w.scrollWidth, 0) + wordGap * gaps;
     const logoRight = navLogo.getBoundingClientRect().right - shownNow + fullName;
     const limit = navLinks.offsetWidth
       ? (navEl.clientWidth - navLinks.offsetWidth) / 2
