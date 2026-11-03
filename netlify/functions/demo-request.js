@@ -49,8 +49,17 @@ exports.handler = async (event) => {
   }
 
   const { name, email, shop, phone, employees, module } = data;
+  const isDeck = module === 'Deck Download';
 
-  if (!name || !email || !shop || !phone || !employees || !module) {
+  if (isDeck) {
+    if (!name || !email || !phone) {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({ error: 'Name, email, and phone are required.' }),
+      };
+    }
+  } else if (!name || !email || !shop || !phone || !employees || !module) {
     return {
       statusCode: 400,
       headers,
@@ -58,16 +67,24 @@ exports.handler = async (event) => {
     };
   }
 
-  const message = [
-    'New Pulse demo request',
-    '',
-    `Name: ${name}`,
-    `Email: ${email}`,
-    `Print shop: ${shop}`,
-    `Phone: ${phone}`,
-    `Employees: ${employees}`,
-    `Module: ${module}`,
-  ].join('\n');
+  const message = isDeck
+    ? [
+        'New Pulse deck download',
+        '',
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Phone: ${phone}`,
+      ].join('\n')
+    : [
+        'New Pulse demo request',
+        '',
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Print shop: ${shop}`,
+        `Phone: ${phone}`,
+        `Employees: ${employees}`,
+        `Module: ${module}`,
+      ].join('\n');
 
   try {
     const client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);

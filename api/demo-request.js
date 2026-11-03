@@ -26,21 +26,34 @@ module.exports = async (req, res) => {
   }
 
   const { name, email, shop, phone, employees, module } = req.body || {};
+  const isDeck = module === 'Deck Download';
 
-  if (!name || !email || !shop || !phone || !employees || !module) {
+  if (isDeck) {
+    if (!name || !email || !phone) {
+      return res.status(400).json({ error: 'Name, email, and phone are required.' });
+    }
+  } else if (!name || !email || !shop || !phone || !employees || !module) {
     return res.status(400).json({ error: 'All fields are required.' });
   }
 
-  const message = [
-    'New Pulse demo request',
-    '',
-    `Name: ${name}`,
-    `Email: ${email}`,
-    `Print shop: ${shop}`,
-    `Phone: ${phone}`,
-    `Employees: ${employees}`,
-    `Module: ${module}`,
-  ].join('\n');
+  const message = isDeck
+    ? [
+        'New Pulse deck download',
+        '',
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Phone: ${phone}`,
+      ].join('\n')
+    : [
+        'New Pulse demo request',
+        '',
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Print shop: ${shop}`,
+        `Phone: ${phone}`,
+        `Employees: ${employees}`,
+        `Module: ${module}`,
+      ].join('\n');
 
   try {
     const client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);

@@ -93,6 +93,7 @@
       border: 1px solid var(--border);
     }
     .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+    .nav-actions { display: flex; align-items: center; gap: 0.6rem; }
 
     /* ── HERO ── */
     #home {
@@ -604,7 +605,7 @@
     html.nav-name-fits .phmp-name { display: none; }
     @media (max-width: 480px) {
       .nav-logo { font-size: 1.05rem; gap: 8px; }
-      nav .btn-primary { padding: 0.5rem 0.9rem; font-size: 0.82rem; }
+      nav .btn-primary, nav .btn-ghost { padding: 0.5rem 0.9rem; font-size: 0.82rem; }
       .phmp-name { font-size: 1rem !important; min-height: 3.3em !important; }
     }
     @media (max-width: 900px) {
@@ -681,8 +682,11 @@
     <li><a href="#ai">Pulse AI</a></li>
     <li><a href="#problem">The Problem</a></li>
     <li><a href="#transformation">Before &amp; After</a></li>
+    <li><a href="investors.html">Investors</a></li>
   </ul>
-  <a href="#contact" class="btn btn-primary">Request a Demo</a>
+  <div class="nav-actions">
+    <a href="#contact" class="btn btn-primary">Request a Demo</a>
+  </div>
 </nav>
 
 <!-- ── HERO ── -->
@@ -816,7 +820,6 @@
       </p>
       <div class="hero-ctas fade-up">
         <a href="#contact" class="btn btn-primary btn-primary-lg">Request a Demo</a>
-        <a href="#modules" class="btn btn-ghost btn-primary-lg">See the Platform</a>
       </div>
       <div class="hero-stats fade-up">
         <div class="hero-stat">
@@ -1944,6 +1947,7 @@
     <li><a href="#ai">Pulse AI</a></li>
     <li><a href="#problem">The Problem</a></li>
     <li><a href="#transformation">Before &amp; After</a></li>
+    <li><a href="investors.html">Investors</a></li>
     <li><a href="#contact">Request Demo</a></li>
   </ul>
   <div class="footer-copy">© 2026 Pulse Print. All rights reserved.</div>
@@ -2047,7 +2051,7 @@
   const navEl = document.querySelector('nav');
   const navLogo = document.querySelector('.nav-logo');
   const navLinks = document.querySelector('.nav-links');
-  const navCta = navEl.querySelector('.btn-primary');
+  const navCta = navEl.querySelector('.nav-actions') || navEl.querySelector('.btn-primary');
   const navWords = [...document.querySelectorAll('.nav-phmp .phmp-word span')];
   function updateNavNameFit() {
     const wordGap = 0.3 * parseFloat(getComputedStyle(navWords[0]).fontSize);
