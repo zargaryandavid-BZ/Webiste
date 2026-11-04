@@ -55,17 +55,21 @@ module.exports = async (req, res) => {
         `Module: ${module}`,
       ].join('\n');
 
-  try {
-    const client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
-    await client.messages.create({
-      body: message,
-      from: TWILIO_PHONE_NUMBER,
-      to: NOTIFICATION_PHONE,
-    });
+  // NOTIFICATION_PHONE can hold several numbers separated by commas; all are texted at once.
+  const recipients = NOTIFICATION_PHONE.split(',').map((n) => n.trim()).filter(Boolean);
 
+  const client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+  const results = await Promise.allSettled(
+    recipients.map((to) => client.messages.create({ body: message, from: TWILIO_PHONE_NUMBER, to }))
+  );
+
+  results.forEach((r, i) => {
+    if (r.status === 'rejected') console.error(`Twilio error for ${recipients[i]}:`, r.reason && r.reason.message);
+  });
+
+  // Succeed as long as at least one person got the text.
+  if (results.some((r) => r.status === 'fulfilled')) {
     return res.status(200).json({ ok: true });
-  } catch (err) {
-    console.error('Twilio error:', err.message);
-    return res.status(502).json({ error: 'Failed to send SMS notification.' });
   }
+  return res.status(502).json({ error: 'Failed to send SMS notification.' });
 };
