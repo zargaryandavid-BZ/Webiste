@@ -3,12 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pulse Print — AI Print Shop Automation Software</title>
-  <meta name="description" content="Pulse Print is the AI-powered, all-in-one print shop automation software built for small and mid-size print shops. CRM, job tickets, designer management, HR, and white-label broker websites — one platform, zero chaos." />
-  <meta name="keywords" content="print shop management software, printing house automation, print CRM, job ticket software, print production management, print broker website, print shop workflow, printing business software" />
-  <meta property="og:title" content="Pulse Print — AI Print Shop Automation Software" />
-  <meta property="og:description" content="The all-in-one platform built for printing houses. Run every job, own every deadline." />
+  <title>AI Print Shop Automation &amp; Management Software | Pulse Print</title>
+  <meta name="description" content="AI print shop automation software for small and mid-size shops. Run quotes, job tickets and production in one print shop management software platform." />
+  <meta name="keywords" content="print shop automation software, AI for print shops, print shop management software, printing business software, print MIS, print job ticket software, print production management, print shop CRM, web to print storefront" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://www.pulseprintautomation.com/" />
+  <meta name="theme-color" content="#06060e" />
+  <meta property="og:site_name" content="Pulse Print" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.pulseprintautomation.com/" />
+  <meta property="og:title" content="AI Print Shop Automation &amp; Management Software | Pulse Print" />
+  <meta property="og:description" content="AI for print shops: automate quotes, job tickets and production, cut waste, raise throughput and know your numbers." />
+  <meta property="og:image" content="https://www.pulseprintautomation.com/production-floor.jpg" />
+  <meta property="og:image:alt" content="Print shop production floor managed with Pulse Print" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Print Shop Automation &amp; Management Software | Pulse Print" />
+  <meta name="twitter:description" content="AI for print shops: automate quotes, job tickets and production, cut waste and know your numbers." />
+  <meta name="twitter:image" content="https://www.pulseprintautomation.com/production-floor.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.pulseprintautomation.com/#organization",
+        "name": "Pulse Print",
+        "url": "https://www.pulseprintautomation.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.pulseprintautomation.com/#website",
+        "name": "Pulse Print",
+        "url": "https://www.pulseprintautomation.com/",
+        "publisher": { "@id": "https://www.pulseprintautomation.com/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Pulse Print",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://www.pulseprintautomation.com/",
+        "description": "AI print shop automation and management software: CRM and quoting, job tickets, production scheduling, HR, supply and vendor management, and white-label print storefronts.",
+        "publisher": { "@id": "https://www.pulseprintautomation.com/#organization" }
+      }
+    ]
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f6ef7'/%3E%3Cpath d='M4 16h5l3-8 5 16 3-10 2 6h6' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -129,7 +169,7 @@
       position: relative; z-index: 1;
     }
 
-    /* ── HERO LEFT — photo + dashboard overlay ── */
+    /* ── HERO LEFT: photo + dashboard overlay ── */
     .hero-visual {
       position: relative;
       border-radius: 20px;
@@ -215,7 +255,7 @@
     .prog-bar { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
     .prog-val { font-size: 0.62rem; font-weight: 700; color: var(--text); width: 26px; text-align: right; }
 
-    /* ── HERO RIGHT — content ── */
+    /* ── HERO RIGHT: content ── */
     .hero-content { text-align: left; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
@@ -525,6 +565,11 @@
       transform: scaleX(0); transform-origin: left;
       box-shadow: 0 0 12px rgba(34,211,238,0.6);
     }
+    .h1-kicker {
+      display: block; margin-bottom: 0.9rem;
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--cyan); -webkit-text-fill-color: var(--cyan);
+    }
     .gradient-text {
       background-image: linear-gradient(110deg, var(--blue-light) 0%, var(--cyan) 35%, #a5f3fc 50%, var(--cyan) 65%, var(--blue-light) 100%);
       background-size: 220% auto;
@@ -598,6 +643,9 @@
     @media (min-width: 901px) {
       .nav-links { position: absolute; left: 50%; transform: translateX(-50%); gap: 1.6rem; }
     }
+    @media (max-width: 1000px) {
+      .nav-links { display: none; }
+    }
     /* JS adds .nav-name-fits when the header has room for the full name.
        Without room the header stays "AI" and the hero line animates instead. */
     html:not(.nav-name-fits) .nav-phmp .phmp-word span { max-width: 0; opacity: 0; }
@@ -662,7 +710,7 @@
 <!-- ── NAVIGATION ── -->
 <nav>
   <div class="scroll-progress" id="scroll-progress"></div>
-  <a href="#home" class="nav-logo" aria-label="Pulse Print — AI Print Shop Automation Software">
+  <a href="#home" class="nav-logo" aria-label="Pulse Print: AI Print Shop Automation Software">
     <div class="pulse-icon">
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M2 10h3l2-6 4 12 2-8 1.5 4H18" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -682,6 +730,7 @@
     <li><a href="#ai">Pulse AI</a></li>
     <li><a href="#problem">The Problem</a></li>
     <li><a href="#transformation">Before &amp; After</a></li>
+    <li><a href="/blog">Blog</a></li>
     <li><a href="investors.html">Investors</a></li>
   </ul>
   <div class="nav-actions">
@@ -700,7 +749,7 @@
 
       <!-- Layer 1: Production photo -->
       <div class="hero-photo-layer">
-        <img src="production-floor.jpg" alt="Print production floor" />
+        <img src="production-floor.jpg" alt="Print shop production floor running on print shop automation software" width="1700" height="1131" fetchpriority="high" />
       </div>
 
       <!-- Layer 2: Dashboard cards -->
@@ -736,19 +785,19 @@
         <div class="job-rows">
           <div class="job-row">
             <div class="job-dot green"></div>
-            <span class="job-name">ABC Corp — Business Cards</span>
+            <span class="job-name">ABC Corp · Business Cards</span>
             <span class="job-deadline">Due 2pm</span>
             <span class="job-status done">Done</span>
           </div>
           <div class="job-row">
             <div class="job-dot blue"></div>
-            <span class="job-name">Metro Realty — Banners</span>
+            <span class="job-name">Metro Realty · Banners</span>
             <span class="job-deadline">Due 4pm</span>
             <span class="job-status press">On Press</span>
           </div>
           <div class="job-row">
             <div class="job-dot yellow"></div>
-            <span class="job-name">Green Co — Flyers ×5000</span>
+            <span class="job-name">Green Co · Flyers ×5000</span>
             <span class="job-deadline">Due Tomorrow</span>
             <span class="job-status review">Review</span>
           </div>
@@ -788,7 +837,7 @@
           </span>
           <span class="dash-live">Thinking</span>
         </div>
-        <p class="ai-typing" id="ai-typing">Move Green Co flyers to Press 2 — saves 40 min.</p>
+        <p class="ai-typing" id="ai-typing">Move Green Co flyers to Press 2 to save 40 min.</p>
       </div>
 
       </div><!-- end hero-cards-layer -->
@@ -796,7 +845,7 @@
 
     <!-- RIGHT: Copy + CTAs -->
     <div class="hero-content">
-      <div class="phmp-name fade-up" aria-label="Pulse Print — AI Print Shop Automation Software">
+      <div class="phmp-name fade-up" aria-label="Pulse Print: AI Print Shop Automation Software">
         <span class="phmp-pulse" aria-hidden="true">Pulse Print</span>
         <span class="phmp" id="phmp" aria-hidden="true">
           <span class="phmp-word"><b>AI</b></span>
@@ -811,12 +860,13 @@
         AI-Powered · Data-Driven · 8 Modules
       </div>
       <h1 class="fade-up">
+        <span class="h1-kicker">AI print shop automation software</span>
         No Mess in the<br />
         Printing House.<br />
         <span class="gradient-text">Know Your Numbers.</span>
       </h1>
       <p class="hero-sub fade-up">
-        AI-powered, data-driven control for small and mid-size print shops. See every job, press and sheet in real time — cut production waste, raise throughput, and run your shop on facts, not guesses.
+        AI-powered print shop management software for small and mid-size print shops. See every job, press and sheet in real time. Cut production waste, raise throughput, and run your shop on facts, not guesses.
       </p>
       <div class="hero-ctas fade-up">
         <a href="#contact" class="btn btn-primary btn-primary-lg">Request a Demo</a>
@@ -849,7 +899,7 @@
     <!-- 01 CRM -->
     <div class="mc fade-up" data-href="https://bazar-crm-eta.vercel.app/leads" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
-        <img src="crm-operator.png" alt="Operator with headset talking to client" />
+        <img loading="lazy" decoding="async" src="crm-operator.jpg" alt="Print shop CRM: operator with headset talking to a client" width="900" height="529" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -869,14 +919,10 @@
           </button>
         </div>
       </div>
-      <div class="mc-creds">
-        <div class="mc-creds-hidden">Login credentials hidden</div>
-        <div class="mc-creds-shown" hidden>
-          <div><span>Email</span> zargaryandavid@gmail.com</div>
-          <div><span>Password</span> Admin2026##</div>
-        </div>
+      <div class="mc-creds" data-creds="crm">
+        <div class="mc-creds-shown"></div>
       </div>
-      <p class="mc-desc">Every client, quote, and order — tracked. Send estimates, follow up automatically, close more jobs.</p>
+      <p class="mc-desc">Every client, quote, and order, tracked. Send estimates, follow up automatically, close more jobs.</p>
       <ul class="mc-list">
         <li>Quote &amp; Estimate Builder</li>
         <li>Lead Pipeline</li>
@@ -888,7 +934,7 @@
     <!-- 02 Workflow -->
     <div class="mc fade-up" data-href="https://workflow-rho-one.vercel.app/settings/integrations" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
-        <img src="design-manager.jpg" onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=85'" alt="Workflow - color swatches and artwork" />
+        <img loading="lazy" decoding="async" src="design-manager.jpg" onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=85'" alt="Workflow - color swatches and artwork" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -908,14 +954,10 @@
           </button>
         </div>
       </div>
-      <div class="mc-creds">
-        <div class="mc-creds-hidden">Login credentials hidden</div>
-        <div class="mc-creds-shown" hidden>
-          <div><span>Email</span> zargaryandavid@bazaarprinting.com</div>
-          <div><span>Password</span> 111111</div>
-        </div>
+      <div class="mc-creds" data-creds="workflow">
+        <div class="mc-creds-shown"></div>
       </div>
-      <p class="mc-desc">Brief to approved artwork in one thread. File versions, designer tasks, client proofs — no email chains.</p>
+      <p class="mc-desc">Brief to approved artwork in one thread. File versions, designer tasks, client proofs. No email chains.</p>
       <ul class="mc-list">
         <li>File Version Control</li>
         <li>Client Proof Approval</li>
@@ -927,7 +969,7 @@
     <!-- 03 Production -->
     <div class="mc fade-up" data-href="https://pulse-jade-five.vercel.app/pages/dashboard.html" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
-        <img src="operator-printing-press.jpg" alt="Operator working on large format printing press" />
+        <img loading="lazy" decoding="async" src="operator-printing-press.jpg" alt="Operator working on large format printing press" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -948,12 +990,8 @@
           </button>
         </div>
       </div>
-      <div class="mc-creds">
-        <div class="mc-creds-hidden">Login credentials hidden</div>
-        <div class="mc-creds-shown" hidden>
-          <div><span>Email</span> zargaryandavid@bazaarprinting.com</div>
-          <div><span>Password</span> 1111</div>
-        </div>
+      <div class="mc-creds" data-creds="production">
+        <div class="mc-creds-shown"></div>
       </div>
       <p class="mc-desc">Real-time production board. Job tickets flow from approved artwork straight to the press queue.</p>
       <ul class="mc-list">
@@ -967,7 +1005,7 @@
     <!-- 04 Employee Management -->
     <div class="mc fade-up" data-href="https://hr-one-beta.vercel.app/admin/dashboard" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
-        <img src="hr-team.jpg" onerror="this.src='https://images.unsplash.com/photo-1612831455359-970e23a1e4e9?w=800&q=85'" alt="HR team management" />
+        <img loading="lazy" decoding="async" src="hr-team.jpg" onerror="this.src='https://images.unsplash.com/photo-1612831455359-970e23a1e4e9?w=800&q=85'" alt="HR team management" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -988,14 +1026,10 @@
           </button>
         </div>
       </div>
-      <div class="mc-creds">
-        <div class="mc-creds-hidden">Login credentials hidden</div>
-        <div class="mc-creds-shown" hidden>
-          <div><span>Email</span> zargaryandavid@bazaarprinting.com</div>
-          <div><span>Password</span> 111111</div>
-        </div>
+      <div class="mc-creds" data-creds="hr">
+        <div class="mc-creds-shown"></div>
       </div>
-      <p class="mc-desc">Shifts, time-off, onboarding — all in one place. No more spreadsheets. No more guessing who's in.</p>
+      <p class="mc-desc">Shifts, time-off, onboarding, all in one place. No more spreadsheets. No more guessing who's in.</p>
       <ul class="mc-list">
         <li>Shift Scheduling</li>
         <li>Time &amp; Attendance</li>
@@ -1007,7 +1041,7 @@
     <!-- 05 Broker Websites -->
     <div class="mc fade-up mc-highlight" data-href="https://www.bazaarprinting.com" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
-        <img src="broker-storefront.jpg" alt="Broker printing website storefront" />
+        <img loading="lazy" decoding="async" src="broker-storefront.jpg" alt="Broker printing website storefront" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -1028,13 +1062,10 @@
           </button>
         </div>
       </div>
-      <div class="mc-creds">
-        <div class="mc-creds-hidden">Login credentials hidden</div>
-        <div class="mc-creds-shown" hidden>
-          <div><span>Login</span> N/A</div>
-        </div>
+      <div class="mc-creds" data-creds="broker">
+        <div class="mc-creds-shown"></div>
       </div>
-      <p class="mc-desc">White-label storefronts for print brokers. They sell under their brand — you handle production.</p>
+      <p class="mc-desc">White-label storefronts for print brokers. They sell under their brand while you handle production.</p>
       <ul class="mc-list">
         <li>White-Label Ready</li>
         <li>Custom Domain</li>
@@ -1046,7 +1077,7 @@
     <!-- 06 SupplyHUB -->
     <div class="mc fade-up mc-supply" data-href="https://supply-hub-omega.vercel.app/login" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
-        <img src="supply-hub.jpg" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=85'" alt="Supply stock and inventory management" />
+        <img loading="lazy" decoding="async" src="supply-hub.jpg" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=85'" alt="Supply stock and inventory management" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -1066,14 +1097,10 @@
           </button>
         </div>
       </div>
-      <div class="mc-creds">
-        <div class="mc-creds-hidden">Login credentials hidden</div>
-        <div class="mc-creds-shown" hidden>
-          <div><span>Email</span> zargaryandavid@bazaarprinting.com</div>
-          <div><span>Password</span> No password needed</div>
-        </div>
+      <div class="mc-creds" data-creds="supplyhub">
+        <div class="mc-creds-shown"></div>
       </div>
-      <p class="mc-desc">Continuous automated supply stream. Track stock levels, consumption, and reorder points — zero manual effort.</p>
+      <p class="mc-desc">Continuous automated supply stream. Track stock levels, consumption, and reorder points with zero manual effort.</p>
       <ul class="mc-list">
         <li>Stock &amp; Inventory Tracking</li>
         <li>Consumption Monitoring</li>
@@ -1085,7 +1112,7 @@
     <!-- 07 VendorHUB -->
     <div class="mc fade-up mc-supply" data-href="https://vendors-azure.vercel.app/" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
-        <img src="vendor-hub.jpg" onerror="this.src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=85'" alt="Vendor network and procurement management" />
+        <img loading="lazy" decoding="async" src="vendor-hub.jpg" onerror="this.src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=85'" alt="Vendor network and procurement management" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -1106,14 +1133,10 @@
           </button>
         </div>
       </div>
-      <div class="mc-creds">
-        <div class="mc-creds-hidden">Login credentials hidden</div>
-        <div class="mc-creds-shown" hidden>
-          <div><span>Email</span> zargaryandavid@gmail.com</div>
-          <div><span>Password</span> 111111</div>
-        </div>
+      <div class="mc-creds" data-creds="vendorhub">
+        <div class="mc-creds-shown"></div>
       </div>
-      <p class="mc-desc">Manage your entire vendor network in one place. Send RFQs, compare prices, and approve orders — fast and fully automated.</p>
+      <p class="mc-desc">Manage your entire vendor network in one place. Send RFQs, compare prices, and approve orders, fast and fully automated.</p>
       <ul class="mc-list">
         <li>Vendor Network Management</li>
         <li>RFQ &amp; Price Requests</li>
@@ -1125,7 +1148,7 @@
     <!-- 08 White-Label Website -->
     <div class="mc fade-up mc-highlight" data-href="https://www.pixelpressprint.com/" role="link" tabindex="0" onclick="openModule(event, this)" onkeydown="if(event.key==='Enter')openModule(event,this)">
       <div class="mc-photo">
-        <img src="whitelabel-website.jpg" onerror="this.src='https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=85'" alt="White-label print shop website" />
+        <img loading="lazy" decoding="async" src="whitelabel-website.jpg" onerror="this.src='https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=85'" alt="White-label print shop website" />
         <div class="mc-photo-overlay"></div>
         <div class="mc-photo-icon">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -1145,13 +1168,10 @@
           </button>
         </div>
       </div>
-      <div class="mc-creds">
-        <div class="mc-creds-hidden">Login credentials hidden</div>
-        <div class="mc-creds-shown" hidden>
-          <div><span>Login</span> N/A</div>
-        </div>
+      <div class="mc-creds" data-creds="whitelabel">
+        <div class="mc-creds-shown"></div>
       </div>
-      <p class="mc-desc">Your print shop's own branded online storefront. Customers order, get instant quotes, and track jobs — all under your brand, powered by Pulse.</p>
+      <p class="mc-desc">Your print shop's own branded online storefront. Customers order, get instant quotes, and track jobs, all under your brand, powered by Pulse.</p>
       <ul class="mc-list">
         <li>Branded Online Storefront</li>
         <li>Instant Online Quoting</li>
@@ -1265,7 +1285,6 @@
     line-height: 1.45;
   }
   .mc.creds-open .mc-creds { display: block; }
-  .mc-creds-hidden { display: none; }
   .mc-creds-shown {
     display: flex; flex-direction: column; gap: 0.25rem;
     color: var(--text);
@@ -1310,7 +1329,7 @@
   <div style="max-width:1200px; margin:0 auto 3rem; position:relative;">
     <span class="section-label">Pulse AI · Data-Driven</span>
     <h2>Know your numbers.<br /><span class="gradient-text">Control your print shop.</span></h2>
-    <p class="section-sub">Pulse AI watches every job, press and sheet in real time — and tells you exactly where you're losing time, paper and money.</p>
+    <p class="section-sub">Pulse AI watches every job, press and sheet in real time and tells you exactly where you're losing time, paper and money.</p>
   </div>
 
   <div class="ai-layout">
@@ -1330,7 +1349,7 @@
       <div class="ai-kpi fade-up">
         <div class="ai-kpi-val blue count" data-to="98" data-suffix="%">98%</div>
         <div class="ai-kpi-key">On-time delivery</div>
-        <p>Deadline risk is predicted hours ahead — not discovered too late.</p>
+        <p>Deadline risk is predicted hours ahead, not discovered too late.</p>
       </div>
       <div class="ai-kpi fade-up">
         <div class="ai-kpi-val amber count" data-to="2" data-suffix=" min">2 min</div>
@@ -1379,7 +1398,7 @@
         </div>
         <div class="ai-feed-item">
           <span class="ai-feed-icon">✦</span>
-          <div><strong>Metro Realty likely to reorder</strong><span>Same order every 6 weeks — send a quote now</span></div>
+          <div><strong>Metro Realty likely to reorder</strong><span>Same order every 6 weeks. Send a quote now</span></div>
           <span class="ai-feed-tag">+$1.2k</span>
         </div>
       </div>
@@ -1397,7 +1416,7 @@
     <div class="ai-feature fade-up">
       <div class="ai-feature-icon">♻</div>
       <h3>Waste Detection</h3>
-      <p>Spot spoilage, reprints and overruns by job, machine and shift — then fix the cause.</p>
+      <p>Spot spoilage, reprints and overruns by job, machine and shift, then fix the cause.</p>
     </div>
     <div class="ai-feature fade-up">
       <div class="ai-feature-icon">$</div>
@@ -1407,7 +1426,7 @@
     <div class="ai-feature fade-up">
       <div class="ai-feature-icon">◔</div>
       <h3>Live Shop Numbers</h3>
-      <p>One dashboard for jobs, capacity, revenue and team — always up to the minute.</p>
+      <p>One dashboard for jobs, capacity, revenue and team, always up to the minute.</p>
     </div>
   </div>
 </section>
@@ -1538,7 +1557,7 @@
         <div class="pf-card fade-up">
           <svg viewBox="0 0 22 22" fill="none" width="20" height="20"><circle cx="8" cy="7" r="3" stroke="#7b93ff" stroke-width="1.6"/><circle cx="14" cy="7" r="3" stroke="#22d3ee" stroke-width="1.6"/><path d="M2 19c0-3 2.7-5 6-5s6 2 6 5" stroke="#7b93ff" stroke-width="1.6" stroke-linecap="round"/><path d="M14 14c2.5 0 4 1.5 4 4" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round"/></svg>
           <h3>HR done in Excel</h3>
-          <p>Shifts, time off, onboarding — all manual. One resignation away from losing everything.</p>
+          <p>Shifts, time off, onboarding: all manual. One resignation away from losing everything.</p>
         </div>
         <div class="pf-card fade-up">
           <svg viewBox="0 0 22 22" fill="none" width="20" height="20"><circle cx="11" cy="11" r="8" stroke="#7b93ff" stroke-width="1.6"/><path d="M8 11c0-2.5 1.5-4 3-4M14 11c0 2.5-1.5 4-3 4" stroke="#22d3ee" stroke-width="1.4" stroke-linecap="round"/><path d="M7 11h8" stroke="#7b93ff" stroke-width="1.4"/></svg>
@@ -1558,7 +1577,7 @@
       <div class="pf-form-box">
         <span class="section-label" style="display:block; margin-bottom:0.5rem;">Get Started</span>
         <h2 style="font-size:1.75rem; margin-bottom:0.5rem;">See Pulse in action.</h2>
-        <p style="color:var(--muted); font-size:0.88rem; margin-bottom:1.5rem;">Tell us about your print shop and we'll show you exactly how Pulse transforms your workflow — live, in 30 minutes.</p>
+        <p style="color:var(--muted); font-size:0.88rem; margin-bottom:1.5rem;">Tell us about your print shop and we'll show you exactly how Pulse transforms your workflow, live, in 30 minutes.</p>
         <form class="demo-form" onsubmit="handleSubmit(event)">
           <div class="form-row">
             <input class="form-input" type="text" name="name" placeholder="Your name" required />
@@ -1747,7 +1766,7 @@
         <div class="ba-item clean">
           <span class="ba-item-icon">🖨️</span>
           <div>
-            <strong>Metro Realty — Banners</strong>
+            <strong>Metro Realty · Banners</strong>
             <span>Proof approved · On press · Due 4:00 PM</span>
           </div>
           <span class="ba-tag-good">ON TRACK</span>
@@ -1755,7 +1774,7 @@
         <div class="ba-item clean">
           <span class="ba-item-icon">🎨</span>
           <div>
-            <strong>Green Co — Flyers ×5000</strong>
+            <strong>Green Co · Flyers ×5000</strong>
             <span>Design approved · Queued for press · Sarah</span>
           </div>
           <span class="ba-tag-good">QUEUED</span>
@@ -1921,6 +1940,107 @@
 </style>
 
 
+<!-- ── FROM THE BLOG ── -->
+<section id="blog" style="background: var(--bg2); padding: 6rem 5%;">
+  <div style="max-width:1200px; margin:0 auto 2.5rem; display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:1rem;">
+    <div>
+      <span class="section-label">From the Blog</span>
+      <h2>Print shop automation &amp; AI, explained.</h2>
+    </div>
+    <a href="/blog" class="btn btn-ghost">All articles →</a>
+  </div>
+  <div class="hb-grid">
+    <a class="hb-card fade-up" href="/blog/what-is-print-shop-automation-software">
+      <img src="blog/images/what-is-print-shop-automation-software.jpg" alt="Large-format printer producing a banner in an automated print shop" width="1600" height="900" loading="lazy" decoding="async" />
+      <div class="hb-body">
+        <span class="hb-tag">Guide</span>
+        <h3>What Is Print Shop Automation Software? A Practical Guide</h3>
+        <p>How automation takes quotes, job tickets, proofs and press scheduling off your team&#x27;s plate, and what to automate first.</p>
+      </div>
+    </a>
+    <a class="hb-card fade-up" href="/blog/ai-for-print-shops">
+      <img src="blog/images/ai-for-print-shops.jpg" alt="AI processor chip on a circuit board, representing AI for print shops" width="1600" height="900" loading="lazy" decoding="async" />
+      <div class="hb-body">
+        <span class="hb-tag">AI</span>
+        <h3>AI for Print Shops: 7 Practical Ways to Cut Waste and Boost Throughput</h3>
+        <p>Forget the hype. Here is where artificial intelligence already pays off on a real print floor, from scheduling to quoting.</p>
+      </div>
+    </a>
+    <a class="hb-card fade-up" href="/blog/print-shop-management-software-buyers-checklist">
+      <img src="blog/images/print-shop-management-software-buyers-checklist.jpg" alt="Colour swatch fan deck in a print shop, comparing options side by side" width="1600" height="900" loading="lazy" decoding="async" />
+      <div class="hb-body">
+        <span class="hb-tag">Buyer&#x27;s guide</span>
+        <h3>How to Choose Print Shop Management Software: A Buyer&#x27;s Checklist</h3>
+        <p>The questions to ask before you commit, so you pick a system your whole team will actually use.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .hb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+  .hb-card {
+    display: flex; flex-direction: column; overflow: hidden; text-decoration: none; color: inherit;
+    background: var(--bg3); border: 1px solid var(--border); border-radius: 16px;
+  }
+  .hb-card.fade-up { transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.25s; }
+  .hb-card:hover { border-color: rgba(79,110,247,0.4); transform: translateY(-4px); }
+  .hb-card img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .hb-body { padding: 1.4rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .hb-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cyan); }
+  .hb-card h3 { font-size: 1.1rem; font-weight: 800; line-height: 1.3; }
+  .hb-card p { font-size: 0.86rem; color: var(--muted); }
+  @media (max-width: 1000px) { .hb-grid { grid-template-columns: 1fr; max-width: 560px; } }
+</style>
+
+<!-- ── CREDENTIALS PASSWORD ── -->
+<div class="pw-overlay" id="pw-overlay" hidden>
+  <form class="pw-box" id="pw-form" role="dialog" aria-modal="true" aria-labelledby="pw-title">
+    <button type="button" class="pw-close" aria-label="Close" onclick="closePasswordPrompt()">×</button>
+    <div class="pw-icon">
+      <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><rect x="4" y="10" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 10V7a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <h3 id="pw-title">Team access only</h3>
+    <p>Enter the team password to see the login details.</p>
+    <input class="form-input" id="pw-input" type="password" autocomplete="current-password" placeholder="Password" required />
+    <p class="pw-error" id="pw-error" hidden></p>
+    <button type="submit" class="btn-submit" id="pw-submit">Unlock</button>
+  </form>
+</div>
+
+<style>
+  .pw-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: center; padding: 16px;
+    background: rgba(6,6,14,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  .pw-overlay[hidden] { display: none; }
+  .pw-box {
+    position: relative; width: 100%; max-width: 360px;
+    background: var(--bg3); border: 1px solid rgba(79,110,247,0.3);
+    border-radius: 18px; padding: 2rem 1.75rem 1.75rem;
+    display: flex; flex-direction: column; gap: 0.85rem; text-align: center;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    animation: pw-in 0.25s ease;
+  }
+  @keyframes pw-in { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
+  .pw-icon {
+    width: 48px; height: 48px; margin: 0 auto; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--cyan); background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.28);
+  }
+  .pw-box h3 { font-size: 1.15rem; font-weight: 800; }
+  .pw-box p { font-size: 0.85rem; color: var(--muted); }
+  .pw-box .pw-error { color: #f87171; font-size: 0.8rem; }
+  .pw-box.shake { animation: pw-shake 0.4s ease; }
+  @keyframes pw-shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+  .pw-close {
+    position: absolute; top: 10px; right: 12px; width: 30px; height: 30px;
+    border: none; background: none; color: var(--muted); font-size: 1.4rem; cursor: pointer;
+  }
+  .pw-close:hover { color: var(--text); }
+</style>
+
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-brand">
@@ -1939,6 +2059,7 @@
     <li><a href="#ai">Pulse AI</a></li>
     <li><a href="#problem">The Problem</a></li>
     <li><a href="#transformation">Before &amp; After</a></li>
+    <li><a href="/blog">Blog</a></li>
     <li><a href="investors.html">Investors</a></li>
     <li><a href="#contact">Request Demo</a></li>
   </ul>
@@ -2013,9 +2134,9 @@
 
   // Pulse AI insight card: types out a rotating set of suggestions
   const aiMessages = [
-    'Move Green Co flyers to Press 2 — saves 40 min.',
+    'Move Green Co flyers to Press 2 to save 40 min.',
     'Paper waste on Press 1 up 6%. Check registration.',
-    'Gang 3 card jobs on one sheet — 18% less stock.',
+    'Gang 3 card jobs on one sheet for 18% less stock.',
     'Metro Realty likely to reorder this week. Send a quote.',
     'Throughput up 12% vs. last week. Press 3 is the bottleneck.',
   ];
@@ -2096,14 +2217,94 @@
   }
 
 
-  function toggleCreds(e, btn) {
-    e.preventDefault();
-    e.stopPropagation();
+  // Login details live on the server (api/creds.js) and are only sent after the
+  // team password is checked there. They are kept in memory, so a reload locks again.
+  let unlockedCreds = null;
+  let pendingCredsBtn = null;
+
+  function setCredsOpen(btn, isOpen) {
     const card = btn.closest('.mc');
-    const isOpen = card.classList.toggle('creds-open');
+    card.classList.toggle('creds-open', isOpen);
     btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     btn.setAttribute('aria-label', isOpen ? 'Hide login credentials' : 'Show login credentials');
   }
+
+  function fillCreds() {
+    document.querySelectorAll('.mc-creds[data-creds]').forEach(box => {
+      const shown = box.querySelector('.mc-creds-shown');
+      shown.replaceChildren();
+      (unlockedCreds[box.dataset.creds] || [['Login', 'N/A']]).forEach(([label, value]) => {
+        const row = document.createElement('div');
+        const key = document.createElement('span');
+        key.textContent = label;
+        row.append(key, ' ' + value);
+        shown.append(row);
+      });
+    });
+  }
+
+  function toggleCreds(e, btn) {
+    e.preventDefault();
+    e.stopPropagation();
+    const isOpen = btn.closest('.mc').classList.contains('creds-open');
+    if (isOpen) return setCredsOpen(btn, false);
+    if (unlockedCreds) return setCredsOpen(btn, true);
+    pendingCredsBtn = btn;
+    openPasswordPrompt();
+  }
+
+  const pwOverlay = document.getElementById('pw-overlay');
+  const pwForm = document.getElementById('pw-form');
+  const pwInput = document.getElementById('pw-input');
+  const pwError = document.getElementById('pw-error');
+  const pwSubmit = document.getElementById('pw-submit');
+
+  function openPasswordPrompt() {
+    pwError.hidden = true;
+    pwInput.value = '';
+    pwOverlay.hidden = false;
+    pwInput.focus();
+  }
+
+  function closePasswordPrompt() {
+    pwOverlay.hidden = true;
+    if (pendingCredsBtn) pendingCredsBtn.focus();
+    pendingCredsBtn = null;
+  }
+
+  pwOverlay.addEventListener('click', (e) => { if (e.target === pwOverlay) closePasswordPrompt(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !pwOverlay.hidden) closePasswordPrompt(); });
+
+  pwForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    pwError.hidden = true;
+    pwSubmit.disabled = true;
+    pwSubmit.textContent = 'Checking…';
+    try {
+      const res = await fetch('/api/creds', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: pwInput.value }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || 'Something went wrong. Try again.');
+      unlockedCreds = data.credentials;
+      fillCreds();
+      const btn = pendingCredsBtn;
+      closePasswordPrompt();
+      if (btn) setCredsOpen(btn, true);
+    } catch (err) {
+      pwError.textContent = err.message;
+      pwError.hidden = false;
+      pwForm.classList.remove('shake');
+      void pwForm.offsetWidth;
+      pwForm.classList.add('shake');
+      pwInput.select();
+    } finally {
+      pwSubmit.disabled = false;
+      pwSubmit.textContent = 'Unlock';
+    }
+  });
 
   // Form submit handler
   async function handleSubmit(e) {

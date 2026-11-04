@@ -1,0 +1,142 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #06060e;
+  --bg2: #0c0c18;
+  --bg3: #11111f;
+  --border: rgba(255,255,255,0.07);
+  --blue: #4f6ef7;
+  --blue-light: #7b93ff;
+  --cyan: #22d3ee;
+  --text: #f0f2ff;
+  --muted: #8b90a8;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg); color: var(--text);
+  line-height: 1.6; overflow-x: hidden;
+}
+a { color: var(--blue-light); }
+img { max-width: 100%; display: block; }
+
+/* ── NAV ── */
+.blog-nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1rem 5%;
+  background: rgba(6,6,14,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 1.15rem; font-weight: 800; color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+}
+.pulse-icon {
+  width: 32px; height: 32px; background: var(--blue); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pulse-icon svg { width: 20px; height: 20px; }
+.nav-tag {
+  font-size: 0.65em; font-weight: 800; letter-spacing: 0.06em; color: var(--cyan);
+  padding: 0.15em 0.45em; border-radius: 6px;
+  background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.28);
+}
+.blog-nav ul { display: flex; gap: 1.6rem; list-style: none; }
+.blog-nav ul a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.blog-nav ul a:hover, .blog-nav ul a[aria-current] { color: var(--text); }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 0.6rem 1.3rem; border-radius: 8px;
+  font-size: 0.9rem; font-weight: 600; text-decoration: none;
+  background: var(--blue); color: #fff; box-shadow: 0 0 24px rgba(79,110,247,0.35);
+  transition: background 0.2s, transform 0.2s;
+}
+.btn:hover { background: var(--blue-light); transform: translateY(-1px); }
+
+/* ── BLOG INDEX ── */
+.blog-hero { padding: 5rem 5% 3rem; max-width: 1200px; margin: 0 auto; }
+.label {
+  display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--blue-light); margin-bottom: 1rem;
+}
+.blog-hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; max-width: 760px; }
+.blog-hero p { color: var(--muted); font-size: 1.05rem; max-width: 620px; margin-top: 1rem; }
+
+.post-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;
+  max-width: 1200px; margin: 0 auto; padding: 0 5% 6rem;
+}
+.post-card {
+  display: flex; flex-direction: column;
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.post-card:hover { border-color: rgba(79,110,247,0.4); transform: translateY(-4px); }
+.post-card img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.post-card-body { padding: 1.4rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+.post-card h2 { font-size: 1.15rem; font-weight: 800; line-height: 1.3; letter-spacing: -0.01em; }
+.post-card p { font-size: 0.88rem; color: var(--muted); flex: 1; }
+.post-meta { font-size: 0.75rem; color: var(--muted); display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.tag {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--cyan); width: fit-content;
+}
+
+/* ── ARTICLE ── */
+.article { max-width: 780px; margin: 0 auto; padding: 3rem 5% 4rem; }
+.crumbs { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; }
+.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.crumbs li + li::before { content: '/'; margin-right: 0.4rem; opacity: 0.6; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--text); }
+.article h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin: 0.4rem 0 1rem; }
+.subtitle { font-size: 1.2rem; color: var(--muted); line-height: 1.55; }
+.article .post-meta { margin-top: 1.25rem; }
+.hero-figure { margin: 2rem 0 2.5rem; }
+.hero-figure img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px; border: 1px solid var(--border); }
+.hero-figure figcaption { font-size: 0.78rem; color: var(--muted); margin-top: 0.6rem; }
+
+.prose { font-size: 1.05rem; line-height: 1.8; color: #d6d9ec; }
+.prose > * + * { margin-top: 1.1rem; }
+.prose h2 { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; color: var(--text); margin-top: 2.4rem; }
+.prose h3 { font-size: 1.15rem; font-weight: 700; color: var(--text); margin-top: 1.6rem; }
+.prose ul, .prose ol { padding-left: 1.3rem; }
+.prose li + li { margin-top: 0.45rem; }
+.prose strong { color: var(--text); }
+.prose blockquote {
+  border-left: 3px solid var(--cyan); padding: 0.4rem 0 0.4rem 1.1rem;
+  color: var(--text); font-weight: 500;
+}
+
+.cta-box {
+  margin-top: 3rem; padding: 2rem; border-radius: 16px; text-align: center;
+  background: var(--bg3); border: 1px solid rgba(79,110,247,0.3);
+}
+.cta-box h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+.cta-box p { color: var(--muted); margin-bottom: 1.25rem; }
+
+.related { max-width: 1200px; margin: 0 auto; padding: 0 5% 5rem; }
+.related > h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1.25rem; }
+.related .post-grid { padding: 0; }
+
+/* ── FOOTER ── */
+.blog-footer {
+  border-top: 1px solid var(--border); padding: 2.5rem 5%;
+  display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between;
+  font-size: 0.85rem; color: var(--muted);
+}
+.blog-footer ul { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; list-style: none; }
+.blog-footer a { color: var(--muted); text-decoration: none; }
+.blog-footer a:hover { color: var(--text); }
+
+@media (max-width: 760px) {
+  .blog-nav ul { display: none; }
+  .post-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  .nav-logo { font-size: 1rem; gap: 8px; }
+  .btn { padding: 0.5rem 0.9rem; font-size: 0.82rem; }
+}
